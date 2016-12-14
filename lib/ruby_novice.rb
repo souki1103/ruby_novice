@@ -5,7 +5,6 @@ def my_hello
   print "Hello.\n"
 end
 
-
 module RubyNovice
   # Your code goes here...
 
