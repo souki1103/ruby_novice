@@ -1,0 +1,121 @@
+# -*- coding: utf-8 -*-
+---
+:head:
+- cucumber/arubaのヘルプ
+:license:
+- "     cc by Shigeto R. Nishitani, 2016"
+:codebreaker:
+  :opts:
+    :short: "-c"
+    :long: "--codebreaker"
+    :desc: codebreaker
+  :title: codebreaker
+  :cont:
+  - features
+  - emacs features/codebreaker_starts_game.feature
+  - emacs features/codebreaker_submit_guess.feature
+  - emacs features/step_definitions/codebreaker_steps.rb
+  - cucumber features/codebreaker_starts_game.feature
+  - emacs lib/codebreaker/game.rb
+  - emacs lib/codebreaker.rb
+  - emacs features/support/env.rb
+  - TestDouble, ここでは失敗していてよい
+  - RSpec
+  - emacs spec/codebreaker/game_spec.rb
+  - emacs spec/spec_helper.rb
+  - rspec spec/codebreaker/game_spec.rb --format doc
+  - game_spec.rbとgame.rbを書き込んでいく
+  - as_null_object
+  - before(:each)
+  - let()
+  - emacs bin/codebreaker
+:cucumber:
+  :opts:
+    :short: "-c"
+    :long: "--cucumber"
+    :desc: cucumber
+  :title: cucumber
+  :cont:
+  - bundle gem -t rspec -b cucumber
+  - emacs spec/greeter_spec.rb
+  - bundle exec rspec spec/greeter_spec.rb
+  - mkdir features
+  - emacs features/greeter_says_hello.feature
+  - cucumber features
+  - mkdir features/step_definitions/
+  - emacs features/step_definitions/greeter_steps.rb
+  - http://pragprog.com/titles/achbd/source_code
+:aruba:
+  :opts:
+    :short: "-a"
+    :long: "--aruba"
+    :desc: aruba initialize
+  :title: aruba initialize
+  :cont:
+  - gem install aruba
+  - bundle gem -t rspec -b fizzbuzz
+  - emacs fizzbuzz.gemspec
+  - bundle install
+  - emacs lib/fizzbuzz.rb
+  - emacs lib/cli.rb
+  - emacs exe/fizzbuzz
+  - bundle exec aruba init --test-framework rspec
+  - emacs spec/cli_spec.rb
+  - bundle exec rspec spec/cli_spec.rb
+  - Qiitaの@tbprgさんの記事，http://qiita.com/tbpgr/items/c1b30ee05c684abdde22
+:todo:
+  :opts:
+    :short: "-t"
+    :long: "--todo"
+    :desc: todo
+  :title: todo
+  :cont:
+  - template_helpでいろいろ試す
+  - 環境変数なんかを確認
+  - BDDを調べる，TDDとのちがい？　何を作る？
+:bdd:
+  :opts:
+    :short: "-b"
+    :long: "--bdd"
+    :desc: bdd
+  :title: bdd
+  :cont:
+  - "「テストはWhat」「プロダクトはHow」「ドキュメントにはWhy」"
+  - きょんさんによる@ITの記事，http://www.atmarkit.co.jp/ait/articles/1404/30/news022.html
+  - "『実践テスト駆動開発』（Growing Object-Oriented Software Guided by Tests）"
+:cli_spec:
+  :opts:
+    :short: "-c"
+    :long: "--cli_spec"
+    :desc: cli_spec
+  :title: cli_spec
+  :cont:
+  - emacs my_help.gemspec
+  - bundle exec aruba init --test-framework rspec
+  - emacs my_help/my_help.gemspec, spec.add_development_dependency "aruba"を追記
+  - emacs my_help/Rakefile, require "rspec/core/rake_task"を追記
+  - emacs spec/spec_helper.rb, require 'my_help'を追記
+  - cp ../fizzbuzz/.rspec ., カラー化などを指定するため
+  - bundle exec rspec spec/cli_spec.rb
+:references:
+  :opts:
+    :short: "-z"
+    :long: "--references"
+    :desc: references
+  :title: references
+  :cont:
+  - http://www.relishapp.com/cucumber/aruba/v/0-11-0/docs/getting-started/cleanup-aruba-working-directory
+  - Qiitaの@tbprgさんの記事，http://qiita.com/tbpgr/items/c1b30ee05c684abdde22
+  - きょんさんによる@ITの記事，http://www.atmarkit.co.jp/ait/articles/1404/30/news022.html
+:ruby_novice:
+  :opts:
+    :short: "-r"
+    :long: "--ruby_novice"
+    :desc: ruby_novice
+  :title: ruby_novice
+  :cont:
+  - git clone git@github.com:daddygongon/ruby_novice.git
+  - cd ruby_novice
+  - bundle update
+  - bundle exec rspec spec/ruby_novice_spec.rb
+

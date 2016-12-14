@@ -1,17 +1,21 @@
 require "ruby_novice/version"
 require 'thor'
 
+def my_hello
+  print "Hello.\n"
+end
+
+
 module RubyNovice
   # Your code goes here...
 
   class CLI < Thor
-    class_option :help, type: :boolean, aliases: '-h', desc: 'help message.'
-    class_option :version, type: :boolean, aliases: '-v', desc: 'version'
-    class_option :debug, type: :boolean, aliases: '-d', desc: 'debug mode'
+#    class_option :help, type: :boolean, aliases: '-h', desc: 'help.'
+#    class_option :debug, type: :boolean, aliases: '-d', desc: 'debug mode'
 
     desc 'hello', 'print hello'
     def hello
-      print "Hello.\n"
+      my_hello
     end
 
     desc 'version', 'version'
