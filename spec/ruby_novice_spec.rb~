@@ -135,7 +135,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 
   context 'print simple_grep', type: :simple_grep do
-    before(:each) { run('ruby_novice simple_grep Hello helloruby.rb') }
+    before(:each) { run('ruby_novice simple_grep H helloruby.rb') }
     expected = "Hello, Ruby."
 
     it { expect(last_command_started).to be_successfully_executed }

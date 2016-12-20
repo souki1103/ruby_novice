@@ -246,13 +246,12 @@ module RubyNovice
       argv=[argv1]
       my_read_line(argv)
     end
-
 # bundle exec rspec spec/ruby_novice_spec.rb:138でテストできます．            
     desc 'simple_grep ARG1 ARG2', 'print simple_grep ARG1 ARG2'
     def simple_grep(argv1,argv2)
       Dir::chdir("../")
+      argv1 = "#{Dir::pwd}/#{argv1}"
       argv2 = "#{Dir::pwd}/#{argv2}"
-      argv1 = "#{Dir::pwd}/#{argv2}/#{argv1}"
       argv=[argv1,argv2]
       my_simple_grep(argv)
     end
