@@ -139,7 +139,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     expected = "Hello, Ruby."
 
     it { expect(last_command_started).to be_successfully_executed }
-#    it { expect(last_command_started).to have_output(expected) }
+    it { expect(last_command_started).to have_output(expected) }
   end
 
   context 'print hello_ruby2', type: :hello_ruby2 do
