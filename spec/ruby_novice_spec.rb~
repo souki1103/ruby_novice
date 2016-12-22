@@ -23,7 +23,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 =end  
 
-  context 'print helloruby', type: :helloruby do
+  context 'helloruby', type: :helloruby do
     before(:each) { run('ruby_novice helloruby') }
     expected = "Hello, Ruby."
     it { expect(last_command_started).to be_successfully_executed }
@@ -103,24 +103,24 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 
   context 'print read_text', type: :read_text do
-    before(:each) { run('ruby_novice read_text helloruby.rb') }
-    expected = "Hello, Ruby."
+    before(:each) { run('ruby_novice read_text helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
   context 'print read_text_simple', type: :read_text_simple do
-    before(:each) { run('ruby_novice read_text_simple helloruby.rb') }
-    expected = "Hello, Ruby."
+    before(:each) { run('ruby_novice read_text_simple helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
   context 'print read_text_oneline', type: :read_text_oneline do
-    before(:each) { run('ruby_novice read_text_oneline helloruby.rb') }
-    expected = "Hello, Ruby."
+    before(:each) { run('ruby_novice read_text_oneline helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
@@ -135,8 +135,8 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 
   context 'print simple_grep', type: :simple_grep do
-    before(:each) { run('ruby_novice simple_grep Hello helloruby.rb') }
-    expected = "Hello, Ruby."
+    before(:each) { run('ruby_novice simple_grep H helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
@@ -150,5 +150,12 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
+  context 'print use_grep', type: :use_grep do
+    before(:each) { run('ruby_novice use_grep H helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
 
 end
