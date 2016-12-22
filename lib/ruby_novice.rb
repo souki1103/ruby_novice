@@ -53,19 +53,19 @@ module RubyNovice
 
     desc 'print_argv ARG1 ARG2 ARG3 ARG4 ARG5', 'print print_argv ARG1 ARG2 ARG3 ARG4 ARG5'
     def print_argv(argv1, argv2, argv3, argv4, argv5)
-      argv=[argv1, argv2, argv3, argv4, argv5]
+      argv = [argv1, argv2, argv3, argv4, argv5]
       my_print_argv(argv)
     end
 
     desc 'happy_birth ARG1', 'print happy_birth ARG1'
     def happy_birth(argv1)
-      argv=[argv1]
+      argv = [argv1]
       my_happy_birth(argv)
     end
 
     desc 'arg_arith ARG1 ARG2', 'print arg_arith ARG1 ARG2'
     def arg_arith(argv1, argv2)
-      argv=[argv1, argv2]
+      argv = [argv1, argv2]
       my_arg_arith(argv)
     end
 
@@ -73,7 +73,7 @@ module RubyNovice
     def read_text(argv1)
       Dir::chdir("../")
       argv1 = "#{Dir::pwd}/#{argv1}"
-      argv=[argv1]
+      argv = [argv1]
       my_read_text(argv)
     end
 
@@ -81,7 +81,7 @@ module RubyNovice
     def read_text_simple(argv1)
       Dir::chdir("../")
       argv1 = "#{Dir::pwd}/#{argv1}"
-      argv=[argv1]
+      argv = [argv1]
       my_read_text_simple(argv)
     end
 
@@ -89,7 +89,7 @@ module RubyNovice
     def read_text_oneline(argv1)
       Dir::chdir("../")
       argv1 = "#{Dir::pwd}/#{argv1}"
-      argv=[argv1]
+      argv = [argv1]
       my_read_text_oneline(argv)
     end
 
@@ -97,17 +97,15 @@ module RubyNovice
     def read_line(argv1)
       Dir::chdir("../")
       argv1 = "#{Dir::pwd}/#{argv1}"
-      argv=[argv1]
+      argv = [argv1]
       my_read_line(argv)
     end
 
-# bundle exec rspec spec/ruby_novice_spec.rb:138でテストできます．            
     desc 'simple_grep ARG1 ARG2', 'print simple_grep ARG1 ARG2'
     def simple_grep(argv1,argv2)
       Dir::chdir("../")
       argv2 = "#{Dir::pwd}/#{argv2}"
-      argv1 = "#{Dir::pwd}/#{argv2}/#{argv1}"
-      argv=[argv1,argv2]
+      argv = [argv1,argv2]
       my_simple_grep(argv)
     end
 
@@ -116,6 +114,13 @@ module RubyNovice
       my_hello_ruby2
     end
 
+    desc 'use_grep ARG1 ARG2', 'print use_grep ARG1 ARG2'
+    def use_grep(argv1,argv2)
+      Dir::chdir("../")
+      argv2 = "#{Dir::pwd}/#{argv2}"
+      argv = [argv1,argv2]
+      my_use_grep(argv)
+    end
 
 
     desc 'version', 'version'

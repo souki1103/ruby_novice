@@ -23,14 +23,14 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 =end  
 
-  context 'print helloruby', type: :helloruby do
+  context 'helloruby', type: :helloruby do
     before(:each) { run('ruby_novice helloruby') }
     expected = "Hello, Ruby."
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print puts_and_p', type: :puts_and_p do
+  context 'puts_and_p', type: :puts_and_p do
     before(:each) { run('ruby_novice puts_and_p') }
     expected = "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
 
@@ -38,7 +38,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print kiritsubo', type: :kiritsubo do
+  context 'kiritsubo', type: :kiritsubo do
     before(:each) { run('ruby_novice kiritsubo') }
     expected = "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとやむごとなき際にはあらぬがすぐれて時めきたまふありけり"
 
@@ -46,7 +46,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print area_volume', type: :area_volume do
+  context 'area_volume', type: :area_volume do
     before(:each) { run('ruby_novice area_volume') }
     expected = "表面積=2200\n体積=6000"
 
@@ -54,7 +54,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print comment_sample', type: :comment_sample do
+  context 'comment_sample', type: :comment_sample do
     before(:each) { run('ruby_novice comment_sample') }
     expected = "表面積=2200\n体積=6000"
 
@@ -62,7 +62,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print greater_smaller', type: :greater_smaller do
+  context 'greater_smaller', type: :greater_smaller do
     before(:each) { run('ruby_novice greater_smaller') }
     expected = "greater"
 
@@ -70,7 +70,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print greater_smaller_else', type: :greater_smaller_else do
+  context 'greater_smaller_else', type: :greater_smaller_else do
     before(:each) { run('ruby_novice greater_smaller_else') }
     expected = "greater"
 
@@ -78,7 +78,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print print_argv', type: :print_argv do
+  context 'print_argv', type: :print_argv do
     before(:each) { run('ruby_novice print_argv 1st 2nd 3rd 4th 5th') }
     expected = "最初の引数: 1st\n２番目の引数: 2nd\n３番目の引数: 3rd\n４番目の引数: 4th\n５番目の引数: 5th"
 
@@ -86,7 +86,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print happy_birth', type: :happy_birth do
+  context 'happy_birth', type: :happy_birth do
     before(:each) { run('ruby_novice happy_birth Ruby') }
     expected = "Happy Birthday, Ruby!"
 
@@ -94,7 +94,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print arg_arith', type: :arg_arith do
+  context 'arg_arith', type: :arg_arith do
     before(:each) { run('ruby_novice arg_arith 5 3') }
     expected = "5 + 3 = 8\n5 - 3 = 2\n5 * 3 = 15\n5 / 3 = 1"
 
@@ -102,31 +102,31 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print read_text', type: :read_text do
-    before(:each) { run('ruby_novice read_text helloruby.rb') }
-    expected = "Hello, Ruby."
+  context 'read_text', type: :read_text do
+    before(:each) { run('ruby_novice read_text helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print read_text_simple', type: :read_text_simple do
-    before(:each) { run('ruby_novice read_text_simple helloruby.rb') }
-    expected = "Hello, Ruby."
+  context 'read_text_simple', type: :read_text_simple do
+    before(:each) { run('ruby_novice read_text_simple helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print read_text_oneline', type: :read_text_oneline do
-    before(:each) { run('ruby_novice read_text_oneline helloruby.rb') }
-    expected = "Hello, Ruby."
+  context 'read_text_oneline', type: :read_text_oneline do
+    before(:each) { run('ruby_novice read_text_oneline helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print read_line', type: :read_line do
+  context 'read_line', type: :read_line do
     before(:each) { run('ruby_novice read_line helloruby2.rb') }
     expected = "Hello, Ruby.\nHELLO, RUBY."
 
@@ -134,15 +134,15 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print simple_grep', type: :simple_grep do
-    before(:each) { run('ruby_novice simple_grep Hello helloruby.rb') }
-    expected = "Hello, Ruby."
+  context 'simple_grep', type: :simple_grep do
+    before(:each) { run('ruby_novice simple_grep H helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
 
     it { expect(last_command_started).to be_successfully_executed }
-#    it { expect(last_command_started).to have_output(expected) }
+    it { expect(last_command_started).to have_output(expected) }
   end
 
-  context 'print hello_ruby2', type: :hello_ruby2 do
+  context 'hello_ruby2', type: :hello_ruby2 do
     before(:each) { run('ruby_novice hello_ruby2')}
     expected = "Hello, Ruby."
 
@@ -150,5 +150,12 @@ RSpec.describe 'ruby_novie command', type: :aruba do
     it { expect(last_command_started).to have_output(expected) }
   end
 
+  context 'use_grep', type: :use_grep do
+    before(:each) { run('ruby_novice use_grep H helloruby2.rb') }
+    expected = "Hello, Ruby.\nHELLO, RUBY."
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
 
 end
