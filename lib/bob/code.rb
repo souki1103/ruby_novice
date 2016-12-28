@@ -9,7 +9,7 @@ end
 # 第1章
 
 def my_helloruby
-# bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb 
+# bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rbでテスト 
   print("Hello, Ruby.\n")
 end
 

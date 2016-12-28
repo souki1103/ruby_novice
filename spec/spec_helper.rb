@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'ruby_novice'
+#require 'aruba/rspec'
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 if RUBY_VERSION < '1.9.3'

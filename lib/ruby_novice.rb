@@ -1,6 +1,15 @@
+$LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
+begin
+  require 'code'
+rescue LoadError
+  p "Load Error of ex_files in rubynovice.rb."
+  p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
+  exit
+end
+
 require "ruby_novice/version"
 require 'thor'
-require "code"
+#require "code"
 
 module RubyNovice
   # Your code goes here...
@@ -30,7 +39,7 @@ module RubyNovice
     def kiritsubo
       my_kiritsubo
     end
-   
+
     desc 'area_volume', 'print area_volume'
     def area_volume
       my_area_volume
