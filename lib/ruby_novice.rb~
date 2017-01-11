@@ -93,32 +93,32 @@ module RubyNovice
 
     desc 'my_read_text_simple ARG1', 'print read_text_simple ARG1'
     def my_read_text_simple(argv1)
-      Dir::chdir("../")
-      argv1 = "#{Dir::pwd}/#{argv1}"
+      Dir::chdir("../..")
+      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
       ARGV[0] = argv1
       read_text_simple
     end
 
     desc 'my_read_text_oneline ARG1', 'print read_text_oneline ARG1'
     def my_read_text_oneline(argv1)
-      Dir::chdir("../")
-      argv1 = "#{Dir::pwd}/#{argv1}"
+      Dir::chdir("../..")
+      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
       ARGV[0] = argv1
       read_text_oneline
     end
 
     desc 'my_read_line ARG1', 'print read_line ARG1'
     def my_read_line(argv1)
-      Dir::chdir("../")
-      argv1 = "#{Dir::pwd}/#{argv1}"
+      Dir::chdir("../..")
+      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
       ARGV[0] = argv1
       read_line
     end
 
     desc 'my_simple_grep ARG1 ARG2', 'print simple_grep ARG1 ARG2'
     def my_simple_grep(argv1,argv2)
-      Dir::chdir("../")
-      argv2 = "#{Dir::pwd}/#{argv2}"
+      Dir::chdir("../..")
+      argv2 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv2}"
       ARGV[0] = argv1
       ARGV[1] = argv2
       simple_grep
@@ -131,8 +131,8 @@ module RubyNovice
 
     desc 'my_use_grep ARG1 ARG2', 'print use_grep ARG1 ARG2'
     def my_use_grep(argv1,argv2)
-      Dir::chdir("../")
-      argv2 = "#{Dir::pwd}/#{argv2}"
+      Dir::chdir("../..")
+      argv2 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv2}"
       ARGV[0] = argv1
       ARGV[1] = argv2
       use_grep

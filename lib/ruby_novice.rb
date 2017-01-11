@@ -60,13 +60,13 @@ module RubyNovice
       greater_smaller_else
     end
 
-    desc 'my_print_argv ARG1 ARG2 ARG3 ARG4 ARG5', 'print print_argv ARG1 ARG2 ARG3 ARG4 ARG5'
-    def my_print_argv(argv1, argv2, argv3, argv4, argv5)
-      ARGV[0] = argv1
-      ARGV[1] = argv2
-      ARGV[2] = argv3
-      ARGV[3] = argv4
-      ARGV[4] = argv5
+    desc 'my_print_argv ARGV0 ARGV1 ARGV2 ARGV3 ARGV4', 'print print_argv ARGV0 ARGV1 ARGV2 ARGV3 ARGV4'
+    def my_print_argv(argv0, argv1, argv2, argv3, argv4)
+      ARGV[0] = argv0
+      ARGV[1] = argv1
+      ARGV[2] = argv2
+      ARGV[3] = argv3
+      ARGV[4] = argv4
       print_argv
     end
 
