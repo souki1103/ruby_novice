@@ -14,14 +14,14 @@ RSpec.describe 'ruby_novie command', type: :aruba do
 #    it { expect(last_command_started).to have_output(expected) }
   end
 
-=begin
+begin
   context 'print hello', type: :hello do
     before(:each) { run('ruby_novice hello') }
     expected = "Hello."
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }
   end
-=end  
+end  
 
   context 'helloruby', type: :helloruby do
     before(:each) { run('ruby_novice my_helloruby') }
