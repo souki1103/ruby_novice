@@ -62,7 +62,7 @@ module RubyNovice
 
     desc 'my_print_argv ARGV0 ARGV1 ARGV2 ARGV3 ARGV4', 'print print_argv ARGV0 ARGV1 ARGV2 ARGV3 ARGV4'
     def my_print_argv(argv0, argv1, argv2, argv3, argv4)
-      RGV[0] = argv0
+      ARGV[0] = argv0
       ARGV[1] = argv1
       ARGV[2] = argv2
       ARGV[3] = argv3
@@ -253,6 +253,12 @@ module RubyNovice
     def my_myloop1
       myloop1
     end
+
+    desc 'hello_class', 'print hello_class'
+    def my_hello_class
+      hello_class
+    end
+
 
 
 
