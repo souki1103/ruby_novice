@@ -164,97 +164,97 @@ module RubyNovice
       case1
     end
 
-    desc 'case_class', 'print case_class'
+    desc 'my_case_class', 'print case_class'
     def my_case_class
       case_class
     end
 
-    desc 'times', 'print times'
+    desc 'my_times', 'print times'
     def my_times
       times
     end
 
-    desc 'times2', 'print times2'
+    desc 'my_times2', 'print times2'
     def my_times2
       times2
     end
 
-    desc 'times3', 'print times3'
+    desc 'my_times3', 'print times3'
     def my_times3
       times3
     end
 
-    desc 'for1', 'print for1'
+    desc 'my_for1', 'print for1'
     def my_for1
       for1
     end
 
-    desc 'for_names', 'print for_names'
+    desc 'my_for_names', 'print for_names'
     def my_for_names
       for_names
     end
 
-    desc 'while1', 'print while1'
+    desc 'my_while1', 'print while1'
     def my_while1
       while1
     end
 
-    desc 'while2', 'print while2'
+    desc 'my_while2', 'print while2'
     def my_while2
       while2
     end
 
-    desc 'while3', 'print while3'
+    desc 'my_while3', 'print while3'
     def my_while3
       while3
     end
 
-    desc 'until1', 'print until1'
+    desc 'my_until1', 'print until1'
     def my_until1
       until1
     end
 
-    desc 'while_not', 'print while_not'
+    desc 'my_while_not', 'print while_not'
     def my_while_not
       while_not
     end
 
-    desc 'each_names', 'print each_names'
+    desc 'my_each_names', 'print each_names'
     def my_each_names
       each_names
     end
 
-    desc 'each', 'print each'
+    desc 'my_each', 'print each'
     def my_each
       each
     end
 
-    desc 'break_next', 'print break_next'
+    desc 'my_break_next', 'print break_next'
     def my_break_next
       break_next
     end
 
-    desc 'times_with_param', 'print times_with_param'
+    desc 'my_times_with_param', 'print times_with_param'
     def my_times_with_param
       times_with_param
     end
 
-    desc 'hello_with_name', 'print hello_with_name'
+    desc 'my_hello_with_name', 'print hello_with_name'
     def my_hello_with_name
       hello_with_name
     end
 
-    desc 'hello_with_default', 'print hello_with_default'
+    desc 'my_hello_with_default', 'print hello_with_default'
     def my_hello_with_default
       hello_with_default
     end
 
-    desc 'myloop1', 'print myloop1'
+    desc 'my_myloop1', 'print myloop1'
     def my_myloop1
       myloop1
     end
 
-    desc 'hello_class', 'print hello_class'
+    desc 'my_hello_class', 'print hello_class'
     def my_hello_class
       hello_class
     end

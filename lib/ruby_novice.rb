@@ -253,12 +253,12 @@ module RubyNovice
     def my_myloop1
       myloop1
     end
-
+=begin
     desc 'my_hello_class', 'print hello_class'
     def my_hello_class
       hello_class
     end
-
+=end
 
 
 
