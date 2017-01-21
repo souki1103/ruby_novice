@@ -1,1 +1,95 @@
-!ruby_noviceの開発
+{{toc}}
+!イントロダクション
+卒業論文: GitHubを利用したRuby初心者学習ソフトの開発
+
+!関連研究
+!!Rubyとは
+!!Githubとは
+GitHubは，コンピュータープログラムの元となるソースコードをインターネット上で管理するためのサービスである.複数人が携わるソフトウェア開発において,ソースコードの共有や，バージョン管理といった作業は必要不可欠となる.
+またGitHubは，ソースコードを始めとするプログラム開発に必要なファイルやそれらの変更履歴等を保存する「リポジトリ」と呼ばれる場所があり，ソースコード等のバージョンを管理する機能の他，プログラム開発等に対する開発者間でのレビューやコメント機能，プログラム開発の進捗を管理する機能等が備わっている.
+!!TDD (Test Driven Development)とは
+
+テスト駆動開発は,簡単に言うとプログラムを書く前にテストコードを書くということです.プログラムが完成した後 にテストコードを書くのではなく,テストコードを先に書くことに大きな意味があります.
+それは先に仕様を決め,テス トコードを書くことによって自分が次にやることが明確になるためです.これにより作業効率も上がります.最初にいきなりプログラムを書くと,整理されていないプログラムが出来てしまいます.
+しかしはじめにテストコードを書くことによって何をすべきか明確になるのでプログラムが書きやすくなります.
+テスト駆動開発は, テストファーストによる追加・変更とリファクタリングによる設計改善という2つの活動で構成されます. 継続的にユニットテストを使って設計検討やチェック, リファクタリングを行うことにより, テスタビリティに優れバグの少ないソースコードを実現することができます.
+また TDD の運用に当たっては, プログラミングの中で軽快かつスムーズに利用できるユニットテスティングフレームワークが重要です. 
+!!arubaとは
+
+!なぜaruba?
+!!test::unitとの比較
+test::unitだとメソッドを書き換えないといけない．また同時にテストも書いていかないといけないのでやることが多く，間違える量が増えてしまう．printメソッドをreturnで返すことができないというデメリットがある．
+そこでarubaはprintをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがある．他にはCLIに特化しているなどがある．
+
+testunitの場合,エディタに取り出してそれをテストしないといけない(printをreturnせずに出力するには, そのままテストしてくれる)→それは面倒
+
+CLI ターミナル上で色々動かしたりすること
+
+
+!ruby_novice command
+!!tagの表示の仕方 
+*grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
+
+  context 'version option', type: :version do
+  context 'help option', type: :help do
+  context 'print hello', type: :hello do
+  context 'helloruby', type: :helloruby do
+  context 'puts_and_p', type: :puts_and_p do
+  context 'kiritsubo', type: :kiritsubo do
+  context 'area_volume', type: :area_volume do
+  context 'comment_sample', type: :comment_sample do
+  context 'greater_smaller', type: :greater_smaller do
+  context 'greater_smaller_else', type: :greater_smaller_else do
+  context 'print_argv', type: :print_argv do
+  context 'happy_birth', type: :happy_birth do
+  context 'arg_arith', type: :arg_arith do
+  context 'read_text', type: :read_text do
+  context 'read_text_simple', type: :read_text_simple do
+  context 'read_text_oneline', type: :read_text_oneline do
+  context 'read_line', type: :read_line do
+  context 'simple_grep', type: :simple_grep do
+  context 'hello_ruby2', type: :hello_ruby2 do
+  context 'use_grep', type: :use_grep do
+  context 'scopetest', type: :scopetest do
+  context 'ad2heisei', type: :ad2heisei do
+  context 'if_elsif', type: :if_elsif do
+  context 'unless1', type: :unless1 do
+  context 'case1', type: :case1 do
+  context 'case_class', type: :case_class do
+  context 'times', type: :times do
+  context 'times2', type: :times2 do
+  context 'times3', type: :times3 do
+  context 'for1', type: :for1 do
+  context 'for_names', type: :for_names do
+  context 'while1', type: :while1 do
+  context 'while2', type: :while2 do
+  context 'while3', type: :while3 do
+  context 'until1', type: :until1 do
+  context 'while_not', type: :while_not do
+  context 'each_names', type: :each_names do
+  context 'each', type: :each do
+  context 'break_next', type: :break_next do
+  context 'times_with_param', type: :times_with_param do
+  context 'hello_with_name', type: :hello_with_name do
+  context 'hello_with_default', type: :hello_with_default do
+  context 'myloop1', type: :myloop1 do
+
+!!各章ごとのテストの仕方
+
+例: 1章(chap1)のテストをしたい時.
+*bundle exec rspec spec/chap1_spec.rb 
+
+*bundle exec rake chap 1
+
+!!各問題ごとのテストの仕方
+
+例: 各問題(helloruby)ごとにテストをしたい時.
+*bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+
+*bundle exec rake test_name helloruby
+!aruba memo
+予約語(for,while)などは使えない.
+
+list6.4 for.rbは, for1.rbに変えている.
+
+list6.6 while.rbは, while1.rbに変えている.

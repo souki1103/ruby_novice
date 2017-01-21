@@ -1,6 +1,6 @@
 $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
 begin
-  require "code"
+  require "chap_files"
 rescue LoadError
   p "Load Error of ex_files in rubynovice.rb."
   p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
@@ -70,57 +70,57 @@ module RubyNovice
       print_argv
     end
 
-    desc 'my_happy_birth ARG1', 'print happy_birth ARG1'
-    def my_happy_birth(argv1)
-      ARGV[0] = argv1
+    desc 'my_happy_birth ARGV0', 'print happy_birth ARGV0'
+    def my_happy_birth(argv0)
+      ARGV[0] = argv0
       happy_birth
     end
 
-    desc 'my_arg_arith ARG1 ARG2', 'print arg_arith ARG1 ARG2'
-    def my_arg_arith(argv1, argv2)
-      ARGV[0] = argv1
-      ARGV[1] = argv2
+    desc 'my_arg_arith ARGV0 ARGV1', 'print arg_arith ARGV0 ARGV1'
+    def my_arg_arith(argv0, argv1)
+      ARGV[0] = argv0
+      ARGV[1] = argv1
       arg_arith
     end
 
-    desc 'my_read_text ARG1', 'print read_text ARG1'
-    def my_read_text(argv1)
+    desc 'my_read_text ARGV0', 'print read_text ARGV0'
+    def my_read_text(argv0)
       Dir::chdir("../..")
-      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
-      ARGV[0] = argv1
+      argv0 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv0}"
+      ARGV[0] = argv0
       read_text
     end
 
-    desc 'my_read_text_simple ARG1', 'print read_text_simple ARG1'
-    def my_read_text_simple(argv1)
+    desc 'my_read_text_simple ARGV0', 'print read_text_simple ARGV0'
+    def my_read_text_simple(argv0)
       Dir::chdir("../..")
-      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
-      ARGV[0] = argv1
+      argv0 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv0}"
+      ARGV[0] = argv0
       read_text_simple
     end
 
-    desc 'my_read_text_oneline ARG1', 'print read_text_oneline ARG1'
-    def my_read_text_oneline(argv1)
+    desc 'my_read_text_oneline ARGV0', 'print read_text_oneline ARGV0'
+    def my_read_text_oneline(argv0)
       Dir::chdir("../..")
-      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
-      ARGV[0] = argv1
+      argv0 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv0}"
+      ARGV[0] = argv0
       read_text_oneline
     end
 
-    desc 'my_read_line ARG1', 'print read_line ARG1'
-    def my_read_line(argv1)
+    desc 'my_read_line ARG0', 'print read_line ARG0'
+    def my_read_line(argv0)
       Dir::chdir("../..")
-      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
-      ARGV[0] = argv1
+      argv0 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv0}"
+      ARGV[0] = argv0
       read_line
     end
 
-    desc 'my_simple_grep ARG1 ARG2', 'print simple_grep ARG1 ARG2'
-    def my_simple_grep(argv1,argv2)
+    desc 'my_simple_grep ARGV0 ARGV1', 'print simple_grep ARGV0 ARGV1'
+    def my_simple_grep(argv0,argv1)
       Dir::chdir("../..")
-      argv2 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv2}"
-      ARGV[0] = argv1
-      ARGV[1] = argv2
+      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
+      ARGV[0] = argv0
+      ARGV[1] = argv1
       simple_grep
     end
 
@@ -129,12 +129,12 @@ module RubyNovice
       hello_ruby2
     end
 
-    desc 'my_use_grep ARG1 ARG2', 'print use_grep ARG1 ARG2'
-    def my_use_grep(argv1,argv2)
+    desc 'my_use_grep ARGV0 ARGV1', 'print use_grep ARGV0 ARGV1'
+    def my_use_grep(argv0,argv1)
       Dir::chdir("../..")
-      argv2 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv2}"
-      ARGV[0] = argv1
-      ARGV[1] = argv2
+      argv1 = "#{Dir::pwd}/lib/#{ENV['RUBYNOVICE_NAME']}/#{argv1}"
+      ARGV[0] = argv0
+      ARGV[1] = argv1
       use_grep
     end
 
@@ -143,9 +143,9 @@ module RubyNovice
       scopetest
     end
 
-    desc 'my_ad2heisei ARG1', 'print ad2heisei ARG1'
-    def my_ad2heisei(argv1)
-      ARGV[0] = argv1      
+    desc 'my_ad2heisei ARGV0', 'print ad2heisei ARGV0'
+    def my_ad2heisei(argv0)
+      ARGV[0] = argv0      
       ad2heisei
     end
 
@@ -164,95 +164,101 @@ module RubyNovice
       case1
     end
 
-    desc 'case_class', 'print case_class'
+    desc 'my_case_class', 'print case_class'
     def my_case_class
       case_class
     end
 
-    desc 'times', 'print times'
+    desc 'my_times', 'print times'
     def my_times
       times
     end
 
-    desc 'times2', 'print times2'
+    desc 'my_times2', 'print times2'
     def my_times2
       times2
     end
 
-    desc 'times3', 'print times3'
+    desc 'my_times3', 'print times3'
     def my_times3
       times3
     end
 
-    desc 'for1', 'print for1'
+    desc 'my_for1', 'print for1'
     def my_for1
       for1
     end
 
-    desc 'for_names', 'print for_names'
+    desc 'my_for_names', 'print for_names'
     def my_for_names
       for_names
     end
 
-    desc 'while1', 'print while1'
+    desc 'my_while1', 'print while1'
     def my_while1
       while1
     end
 
-    desc 'while2', 'print while2'
+    desc 'my_while2', 'print while2'
     def my_while2
       while2
     end
 
-    desc 'while3', 'print while3'
+    desc 'my_while3', 'print while3'
     def my_while3
       while3
     end
 
-    desc 'until1', 'print until1'
+    desc 'my_until1', 'print until1'
     def my_until1
       until1
     end
 
-    desc 'while_not', 'print while_not'
+    desc 'my_while_not', 'print while_not'
     def my_while_not
       while_not
     end
 
-    desc 'each_names', 'print each_names'
+    desc 'my_each_names', 'print each_names'
     def my_each_names
       each_names
     end
 
-    desc 'each', 'print each'
+    desc 'my_each', 'print each'
     def my_each
       each
     end
 
-    desc 'break_next', 'print break_next'
+    desc 'my_break_next', 'print break_next'
     def my_break_next
       break_next
     end
 
-    desc 'times_with_param', 'print times_with_param'
+    desc 'my_times_with_param', 'print times_with_param'
     def my_times_with_param
       times_with_param
     end
 
-    desc 'hello_with_name', 'print hello_with_name'
+    desc 'my_hello_with_name', 'print hello_with_name'
     def my_hello_with_name
       hello_with_name
     end
 
-    desc 'hello_with_default', 'print hello_with_default'
+    desc 'my_hello_with_default', 'print hello_with_default'
     def my_hello_with_default
       hello_with_default
     end
 
-    desc 'myloop1', 'print myloop1'
+    desc 'my_myloop1', 'print myloop1'
     def my_myloop1
       myloop1
     end
+=begin
+    desc 'my_hello_class', 'print hello_class'
+    def my_hello_class
+      hello_class
+    end
+=end
 
 
 
