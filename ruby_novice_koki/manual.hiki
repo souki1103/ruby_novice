@@ -1,0 +1,113 @@
+!ruby_novice使用法
+!!tagの表示の仕方 
+*grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
+
+  context 'version option', type: :version do
+  context 'help option', type: :help do
+  context 'print hello', type: :hello do
+  context 'helloruby', type: :helloruby do
+  context 'puts_and_p', type: :puts_and_p do
+  context 'kiritsubo', type: :kiritsubo do
+  context 'area_volume', type: :area_volume do
+  context 'comment_sample', type: :comment_sample do
+  context 'greater_smaller', type: :greater_smaller do
+  context 'greater_smaller_else', type: :greater_smaller_else do
+  context 'print_argv', type: :print_argv do
+  context 'happy_birth', type: :happy_birth do
+  context 'arg_arith', type: :arg_arith do
+  context 'read_text', type: :read_text do
+  context 'read_text_simple', type: :read_text_simple do
+  context 'read_text_oneline', type: :read_text_oneline do
+  context 'read_line', type: :read_line do
+  context 'simple_grep', type: :simple_grep do
+  context 'hello_ruby2', type: :hello_ruby2 do
+  context 'use_grep', type: :use_grep do
+  context 'scopetest', type: :scopetest do
+  context 'ad2heisei', type: :ad2heisei do
+  context 'if_elsif', type: :if_elsif do
+  context 'unless1', type: :unless1 do
+  context 'case1', type: :case1 do
+  context 'case_class', type: :case_class do
+  context 'times', type: :times do
+  context 'times2', type: :times2 do
+  context 'times3', type: :times3 do
+  context 'for1', type: :for1 do
+  context 'for_names', type: :for_names do
+  context 'while1', type: :while1 do
+  context 'while2', type: :while2 do
+  context 'while3', type: :while3 do
+  context 'until1', type: :until1 do
+  context 'while_not', type: :while_not do
+  context 'each_names', type: :each_names do
+  context 'each', type: :each do
+  context 'break_next', type: :break_next do
+  context 'times_with_param', type: :times_with_param do
+  context 'hello_with_name', type: :hello_with_name do
+  context 'hello_with_default', type: :hello_with_default do
+  context 'myloop1', type: :myloop1 do
+
+!!全章のテストの仕方
+
+*bundle exec rspec
+
+!!各章ごとのテストの仕方
+
+例: 1章(chap1)のテストをしたい時.
+*bundle exec rspec spec/chap1_spec.rb 
+
+*bundle exec rake chap 1
+
+実行例
+
+ /Users/Koki/ruby_novice% bundle exec rake chap 1   
+ 
+ ruby_novie command
+   version option
+     should be successfully executed
+     should have output: "0.1.0"
+   help option
+     should be successfully executed
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+   puts_and_p
+     should be successfully executed
+     should have output: "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
+   kiritsubo
+     should be successfully executed
+     should have output: "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとやむごとなき際にはあらぬがすぐれて時めきたまふありけり"
+   area_volume
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   comment_sample
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   greater_smaller
+     should be successfully executed
+     should have output: "greater"
+   greater_smaller_else
+     should be successfully executed
+     should have output: "greater"
+		 
+ Finished in 7.61 seconds (files took 1.03 seconds to load)
+ 17 examples, 0 failures
+ 
+!!各問題ごとのテストの仕方
+
+例: 各問題(helloruby)ごとにテストをしたい時.
+*bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+
+*bundle exec rake test_name helloruby
+
+実行例
+ /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
+ Run options: include {:type=>"helloruby"}
+ 
+ ruby_novie command
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+		 
+ Finished in 0.87128 seconds (files took 0.81684 seconds to load)
+ 2 examples, 0 failures
+ 

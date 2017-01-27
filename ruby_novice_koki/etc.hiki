@@ -1,0 +1,17 @@
+
+!aruba memo
+予約語(for,while)などは使えない.
+
+list6.4 for.rbは, for1.rbに変えている.
+
+list6.6 while.rbは, while1.rbに変えている.
+
+!考察
+!おわりに
+!参考文献
+
+[1]「Ruby入門教育」，池本有里, 山本耕史, \url{http://www.shikoku-u.ac.jp/education/docs/Ser.A%20No.37,Ser.B%20No.34-20.pdf}.
+
+[2]「GitHub」，横田一輝, \url{https://kotobank.jp/word/GitHub-1725201}.
+
+[3] テスト駆動開発／振る舞い駆動開発を始めるための基礎知識」，井芹洋輝 \url{http://www.atmarkit.co.jp/ait/articles/1403/05/news035_3.html}.
