@@ -1,4 +1,4 @@
-def hello_class
+class Hello_class
 
   class HelloWorld                   # class文
     def initialize(myname = "Ruby")  # initializeメソッド
