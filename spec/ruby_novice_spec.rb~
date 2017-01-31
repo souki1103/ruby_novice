@@ -25,7 +25,7 @@ RSpec.describe 'ruby_novie command', type: :aruba do
 =end
 
   context 'helloruby', type: :helloruby do
-    before(:each) { run('ruby_novice my_helloruby') }
+    before(:each) { run('ruby_novice1 my_helloruby') }
     expected = "Hello, Ruby."
     it { expect(last_command_started).to be_successfully_executed }
     it { expect(last_command_started).to have_output(expected) }

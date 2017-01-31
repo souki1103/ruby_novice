@@ -19,6 +19,6 @@ end
 
 desc "output => 各問題の実行結果"
 task :output do
-  system "bundle exec exe/ruby_novice my_#{ARGV.last}"
+  system "bundle exec rspec spec/chap#{ARGV.last}_spec.rb"
   ARGV.slice(1,ARGV.size).each{|v| task v.to_sym do; end}
 end

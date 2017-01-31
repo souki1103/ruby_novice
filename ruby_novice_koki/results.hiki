@@ -1,118 +1,463 @@
-
 !結果と分析
-!!なぜaruba? (aruba vs test::unit)
-Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
-test:unitやarubaで書くとどうなるかを具体的に書いたコードを比べて示していきます．
 
-!!!test::unitで書いたテストコード
-たのしいRubyのテキストに記載されている問題で比較していきたいと思います．
-テキストの最初の問題は，Hello, Rubyを出力するプログラムです．
+!!Ruby_novice
 
- print("Hello, Ruby.\n")
+Ruby_noviceは，情報環境であるGitHubを利用しRuby初心者が文法だけでなく，Rubyプログラミングにおける振舞いを身につけるための支援ソフトを開発する．
+またRubyプログラミングで重要となるテスト駆動をおこなえる環境を提供している．これにより，学習者自身が出力チェックできるようにしRubyプログラミングにおけるテスト実行に自然と慣れるような学習形態を目指している．
 
-まず,出力されるHello, Rubyをテストする場合のコードです．
+!!Ruby_noviceの仕組み
 
- #helloruby.rb
+＊Ruby_noviceの構造
+{{attach_view(ruby_novice.001.jpg, ruby_novice_koki)}}
+
+Ruby_noviceの構造は，上記の図のように３つに分かれています．
+*chap_files.rb (chap1.rb, chap2.rb ...) : Text(たのしいRuby)のコードを書く部分.
+*ruby_novice.rb :  chap_files.rbを呼び出している．
+*spec_files.rb  :  runで外部コマンドを入力して，出力結果 = 期待している値の検証．
+
+テストコードが書いているspecファイルを各章ごとに分け，ruby_novice.rbで呼び出すことにより，章ごとにテストを実行することを可能にした．
+
+
+*以下がruby_novice.rbのコードの中身である. (たのしいRubyの１章のみ抜粋)
+
+ #ruby_novice.rb
  
- def helloruby
-   return "Hello, Ruby.\n"
+ $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
+ begin
+   require "chap_files"
+ rescue LoadError
+   p "Load Error of ex_files in rubynovice.rb."
+   p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
+   exit
  end
  
-*test::unitで書いたテストコード
-
- require 'test/unit'
- require './helloruby'
+ require "ruby_novice/version"
+ require 'thor'
+ #require "code"                                                                                  
  
- class Test_Sample < Test::Unit::TestCase
-   def test_helloruby
-     assert_equal("Hello, Ruby.\n",helloruby)
+ module RubyNovice
+   # Your code goes here...                                                                       
+ 
+   class CLI < Thor
+ #    class_option :help, type: :boolean, aliases: '-h', desc: 'help.'                            
+ #    class_option :debug, type: :boolean, aliases: '-d', desc: 'debug mode'                      
+ 
+ =begin                                                                                           
+     desc 'hello', 'print hello'                     
+     def hello                                                                                    
+       my_hello                                                                                   
+     end                                                                                          
+ =end
+ 
+     desc 'my_helloruby', 'print helloruby'
+     def my_helloruby
+       helloruby
+     end
+ 
+     desc 'my_puts_and_p', 'print puts_and_p'
+     def my_puts_and_p
+       puts_and_p
+     end
+ 
+     desc 'my_kiritsubo', 'print kiritsubo'
+     def my_kiritsubo
+       kiritsubo
+     end
+ 
+     desc 'my_area_volume', 'print area_volume'
+     def my_area_volume
+       area_volume
+     end
+ 
+     desc 'my_comment_sample', 'print comment_sample'
+     def my_comment_sample
+       comment_sample
+     end
+ 
+     desc 'my_greater_smaller', 'print greater_smaller'
+     def my_greater_smaller
+       greater_smaller
+     end
+ 
+     desc 'my_greater_smaller_else', 'print greater_smaller_else'
+     def my_greater_smaller_else
+       greater_smaller_else
+     end
+ 
+     desc 'version', 'version'
+     def version
+       puts RubyNovice::VERSION
+     end
+ 
+     private
+ 
+     def output_error_if_debug_mode(e)
+       return unless options[:debug]
+       STDERR.puts(e.message)
+       STDERR.puts(e.backtrace)
+     end
    end
  end
- print("Hello, ruby.\n")
- 
-テストコードの内容は以下の通りである．
-Rubyで代表的なtest/unitというgemが提供されています．このプログラムの始め（require 'test/unit'）で，test/unitを呼び出します．
-Test::Unit::TestCaseを継承したクラスを用意し、test_xxxというメソッドを定義するとそのメソッドがテストの実行対象になり,ここではそれぞれTest_Sampleクラスとtest_hellorubyメソッドがそれに該当します。
-クラス名は大文字から始めるという規則がありますので注意してください．またメソッド名は，必ずtest_ から始めなくてはいけません．ここでは単純にtest_hellorubyとしています．実行してみると分かりますが，
-test_ がないとちゃんと動いてくれません．
-テストコードは，assert_equal(期待値),(実際の値)で実行結果を検証します.assert_equalは，ふたつの引数をとり，第１引数は期待している結果で，第２引数はテストの対象です．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
-補足ですが，test_xxxというメソッドはクラス内に複数あっても構いません.また、1つのテストメソッド内にassert_equalを複数書くのもOKです.
-（とはいえ、原則として1テストメソッドにつき1アサーションとするのが望ましい）
 
-このテストを実行すると以下のような出力になります．
- /Users/Koki/rubynovice/spec/test_unit/list1% ruby test_helloruby.rb 
- Hello, ruby.
- Loaded suite test_helloruby
- Started.
- 
- Finished in 0.000982 seconds.
- 
- 1 tests, 1 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
- 100% passed
- 
- 1018.33 tests/s, 1018.33 assertions/s
 
-!!!test::unitでの問題点
-この場合だと初心者であるRubyの学習者がスクリプトとテストコードを同時に書かなければならない．学習者は，テストコードの書き方も学ぶ必要があるので，学習コストや間違えるリスクが大きくなる．
-一番の問題点は，テキストを見ながら，その問題通りに書けないということです．先ほどの問題で説明すると，コードにreturnwo
-付け加えなければならないことや，printメソッドはreturnできないので，テストするときは return "Hello, Ruby.\n"と書き換えなければなりません．
-このようにtest::unitだとメソッドを書き換えないといけないことや，printメソッドをreturnで返すことができないというデメリットがある．
-そこでarubaはprintをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがあるので学習コストや間違えるリスクを削減できます．
-実際にarubaで書いたコードを元にして具体的に示します．
 
-!!!arubaで書いたテストコード
-先ほどと同じHello, Rubyを出力するプログラムをテストします．
- 
- # code.rb
- 
- def helloruby    
-   print("Hello, Ruby.\n")
- end
- 
-arubaの場合，printメソッドをreturnせずにそのままテストが可能になります．
-下記がこの問題でのテストコードです．
 
+*以下がchap1_spec.rb のコードの中身である. (たのしいRubyの１章のみ抜粋)
+
+
+ #spec_chap1.rb
  require 'spec_helper'
  
- RSpec.describe 'ruby_novie command', type: :aruba do 
+ RSpec.describe 'ruby_novie command', type: :aruba do
+   context 'version option', type: :version do
+     before(:each) { run('ruby_novice v') }
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output("0.1.0") }
+   end
+ 
+   context 'help option', type: :help do
+     expected = `bundle exec exe/ruby_novice help`
+     before(:each) { run('ruby_novice help') }
+     it { expect(last_command_started).to be_successfully_executed }
+ #   it { expect(last_command_started).to have_output(expected) }               
+   end
+ 
+ =begin                                                                          
+   context 'print hello', type: :hello do                                        
+     before(:each) { run('ruby_novice hello') }                                  
+     expected = "Hello."                                                         
+     it { expect(last_command_started).to be_successfully_executed }             
+     it { expect(last_command_started).to have_output(expected) }    
+   end                                                                           
+ =end 
+ 
    context 'helloruby', type: :helloruby do
      before(:each) { run('ruby_novice my_helloruby') }
      expected = "Hello, Ruby."
      it { expect(last_command_started).to be_successfully_executed }
      it { expect(last_command_started).to have_output(expected) }
    end
- end
-
-
- require 'thor'                                                                         
- require "code.rb"
  
- module RubyNovice
-   class CLI < Thor
-     desc 'my_helloruby', 'print helloruby'
-     def my_helloruby
-       helloruby
-     end
+   context 'puts_and_p', type: :puts_and_p do
+     before(:each) { run('ruby_novice my_puts_and_p') }
+     expected = "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
+ 
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ 
+   context 'kiritsubo', type: :kiritsubo do
+     before(:each) { run('ruby_novice my_kiritsubo') }
+     expected = "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとや\\
+ むごとなき際にはあらぬがすぐれて時めきたまふありけり"
+ 
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ 
+   context 'area_volume', type: :area_volume do
+     before(:each) { run('ruby_novice my_area_volume') }
+     expected = "表面積=2200\n体積=6000"
+ 
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ 
+   context 'greater_smaller', type: :greater_smaller do
+     before(:each) { run('ruby_novice my_greater_smaller') }
+     expected = "greater"
+ 
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ 
+ 
+   context 'greater_smaller_else', type: :greater_smaller_else do
+     before(:each) { run('ruby_novice my_greater_smaller_else') }
+     expected = "greater"
+ 
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
  end
  
-他にはCLIに特化しているなどがある．
+
+!!Ruby_noviceの現状
+現状は,たのしいRubyの第1章~第7章までのテストコードを書き実装できる．
+各章の概要は，以下の通りである．
+*第1章 (list1.1 ~ 1.7):  putsメソッドやpメソッド
+
+*第3章 (list3.1 ~ 3.11): ファイルの読み込み
+
+*第4章 (list4.1):        ローカル変数とグローバル変数
+
+*第5章 (list5.1 ~ 5.5):  条件判断(if, unlessなど)
+
+*第6章 (list6.1 ~ 6.13): 繰り返し(for,times,whileなど)
+
+*第7章 (list7.1 ~ 7.4):  メソッド	
 
 
 
+(注意)
 
-!!!TDDの流れ
-テスト駆動開発は以下のRed, Green, Refactoringという3つの作業サイクルを細かく繰り返してプログラミングを進めていきます．
-
-(1)作成したいプログラムの仕様を明確にする．
+予約語(for,while)などは使えないため，以下の問題は名前を変更している．
 
 
-(2) Red (失敗するテストを書く)
+*list5.3:  unless.rb → unless1.rbに変更．
+
+*list5.4:  case.rb → case1.rbに変更．
+
+*list6.4:  for.rb → for1.rbに変更．
+
+*list6.6:  while.rb → while11.rbに変更.
+
+*list6.9:  until.rb → until1.rbに変更．
+
+*list7.4:  myloop.rb → myloop1.rbに変更．
 
 
-(3) Green(テストを成功させる最低限のコードを書く)
+!!Ruby_noviceの作業の流れ
+
+*学習の流れ
+{{attach_view(ruby_novice.003.jpg, ruby_novice_koki)}}
+
+上記の図のようにRuby学習者はRed, Greenという作業サイクルを繰り返してプログラミングを進めていきます．
+
+①作成したいプログラムの仕様を明確にする．
+
+②Red (テストに失敗)
+
+③Green(Redの状態ならば，編集しテストを成功させるコードを書く)
+
+④Greenになると次の問題に進む．
+
+Red,Greenという言葉は,TDDで多用されるテスティングフレームワークの多くがテスト失敗を赤色表示で,テスト成功を緑色表示で通知することに由来している．
+
+*Greenの出力結果
+{{attach_view(ruby_novice.004.jpg, ruby_novice_koki)}}
+*Redの出力結果
+{{attach_view(ruby_novice.005.jpg, ruby_novice_koki)}}
 
 
-(4) Refactoring (コードを綺麗にする)
+!!Ruby_noviceの使用法
+*自分の好きな名前(koki)をつけたディレクトリを作成し，"./lib/koki/chap_files.rb"を準備.
 
-リファクタリングは,コンピュータプログラミングにおいて,プログラムの外部から見た動作を変えずにソースコードの内部構造を整理することです．Red,Greenという言葉は,TDDで多用されるテスティングフレームワークの多くがテスト失敗を赤色表示で,テスト成功を緑色表示で通知することに由来しています．
 
+コード例
+  #/Users/Koki/ruby_novice% cat lib/koki/chap_files.rb
+	
+	 require "chap1"
+  #require "chap3" 
+  #require "chap4"
+  #require "chap5"
+  #require "chap6"
+  #require "chap7"
+	
+	(注) # はコメントアウト．
+
+
+*chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
+コード例 (たのしいRuby第１章)
+ #/Users/Koki/ruby_novice% cat lib/koki/chap1.rb
+ 
+ def helloruby     
+   print("Hello, Ruby.\n")
+ end
+ 
+ def puts_and_p
+   puts "Hello,\n\tRuby."
+   p "Hello,\n\tRuby."
+ end
+ 
+ def kiritsubo
+   print "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\n"
+   print "いとやむごとなき際にはあらぬがすぐれて時めきたまふありけり\n"
+ end
+ 
+ def area_volume
+   x = 10
+   y = 20
+   z = 30
+   area = (x*y + y*z + z*x) * 2
+   volume = x * y * z
+   print "表面積=", area, "\n"
+   print "体積=", volume, "\n"
+ end
+ 
+ def comment_sample
+ =begin                                                                          
+   「たのしいRuby 第５版」サンプル                                               
+    コメントの使い方の例                                                         
+  　2006/06/16 作成                                                              
+    2006/07/01 一部コメントを追加                                                
+    2015/10/01 第５版用に更新                                                    
+ =end
+ 
+   x = 10 # 縦                                                                   
+   y = 20 # 縦                                                                   
+   z = 30 # 高さ                                                                 
+   # 表面積と体積を計算する                                                      
+   area = (x*y + y*z + z*x) * 2
+   volume = x * y * z
+   # 出力する                                                                    
+   print "表面積=", area, "\n"
+   print "体積=", volume, "\n"
+ end
+ 
+ def greater_smaller
+   a = 20
+   if a >= 10 then
+     print "greater\n"
+   end
+   if a <= 9 then
+     print "smaller\n"
+   end
+ end
+ 
+ def greater_smaller_else
+   a = 20
+   if a >= 10
+     print "greater\n"
+   else
+     print "smaller\n"
+   end
+ end
+ 
+
+*rspecで,個人(koki)ごとのテストを実行するには, 環境変数RUBYNOVICE_NAMEにディレクトリ名を入れる.
+**(csh,tcsh)setenv RUBYNOVICE_NAME koki
+**(bash,zsh)export RUBYNOVICE_NAME=koki
+
+
+!!ruby_noviceのコマンド
+!!!tagの表示の仕方 
+*grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
+typeは各章の各問題名の相当する．各問題ごとにテストする時に便利になる．
+
+  context 'version option', type: :version do
+  context 'help option', type: :help do
+  context 'print hello', type: :hello do
+  context 'helloruby', type: :helloruby do
+  context 'puts_and_p', type: :puts_and_p do
+  context 'kiritsubo', type: :kiritsubo do
+  context 'area_volume', type: :area_volume do
+  context 'comment_sample', type: :comment_sample do
+  context 'greater_smaller', type: :greater_smaller do
+  context 'greater_smaller_else', type: :greater_smaller_else do
+  context 'print_argv', type: :print_argv do
+  context 'happy_birth', type: :happy_birth do
+  context 'arg_arith', type: :arg_arith do
+  context 'read_text', type: :read_text do
+  context 'read_text_simple', type: :read_text_simple do
+  context 'read_text_oneline', type: :read_text_oneline do
+  context 'read_line', type: :read_line do
+  context 'simple_grep', type: :simple_grep do
+  context 'hello_ruby2', type: :hello_ruby2 do
+  context 'use_grep', type: :use_grep do
+  context 'scopetest', type: :scopetest do
+  context 'ad2heisei', type: :ad2heisei do
+  context 'if_elsif', type: :if_elsif do
+  context 'unless1', type: :unless1 do
+  context 'case1', type: :case1 do
+  context 'case_class', type: :case_class do
+  context 'times', type: :times do
+  context 'times2', type: :times2 do
+  context 'times3', type: :times3 do
+  context 'for1', type: :for1 do
+  context 'for_names', type: :for_names do
+  context 'while1', type: :while1 do
+  context 'while2', type: :while2 do
+  context 'while3', type: :while3 do
+  context 'until1', type: :until1 do
+  context 'while_not', type: :while_not do
+  context 'each_names', type: :each_names do
+  context 'each', type: :each do
+  context 'break_next', type: :break_next do
+  context 'times_with_param', type: :times_with_param do
+  context 'hello_with_name', type: :hello_with_name do
+  context 'hello_with_default', type: :hello_with_default do
+  context 'myloop1', type: :myloop1 do
+
+!!全章のテストの仕方
+
+*bundle exec rspec
+すべての章のテストを一括して実行できる．
+
+!!各章ごとのテストの仕方
+
+例: 1章(chap1)のテストをしたい時.
+*bundle exec rspec spec/chap1_spec.rb 
+
+*bundle exec rake chap 1
+
+実行例
+
+ /Users/Koki/ruby_novice% bundle exec rake chap 1   
+ 
+ ruby_novie command
+   version option
+     should be successfully executed
+     should have output: "0.1.0"
+   help option
+     should be successfully executed
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+   puts_and_p
+     should be successfully executed
+     should have output: "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
+   kiritsubo
+     should be successfully executed
+     should have output: "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとやむごとなき際にはあらぬがすぐれて時めきたまふありけり"
+   area_volume
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   comment_sample
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   greater_smaller
+     should be successfully executed
+     should have output: "greater"
+   greater_smaller_else
+     should be successfully executed
+     should have output: "greater"
+		 
+ Finished in 7.61 seconds (files took 1.03 seconds to load)
+ 17 examples, 0 failures
+ 
+!!!各問題ごとのテストの仕方
+
+例: 各問題(helloruby)ごとにテストをしたい時.
+*bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+
+*bundle exec rake test_name helloruby
+
+実行例
+ /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
+ Run options: include {:type=>"helloruby"}
+ 
+ ruby_novie command
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+		 
+ Finished in 0.87128 seconds (files took 0.81684 seconds to load)
+ 2 examples, 0 failures
+ 
+ 
+問題名は,上記のgrep type spec/ruby_novice_spec.rbで調べることができる．
+typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.rb)が，そのまま使えるのでテストも簡単にでき，問題名で中身のコードの内容も把握できる． 
+!!!各問題ごとの実行結果の出力
+
+例: hellorubyの実行結果の出力
+
+*bundle exec exe/ruby_novice my_helloruby
+
+*bundle exec rake/output helloruby
+
+実行例
+
+ /Users/Koki/ruby_novice% bundle exec rake output helloruby
+ Hello, Ruby.
+ 

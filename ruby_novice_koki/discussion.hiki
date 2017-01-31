@@ -1,0 +1,121 @@
+!考察
+!!なぜaruba? (aruba vs test::unit)
+Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
+test:unitやarubaで書くとどうなるかを具体的に書いたコードを比べて示していきます．
+
+!!!test::unitで書いたテストコード
+たのしいRubyのテキストに記載されている問題で比較していきたいと思います．
+テキストの最初の問題は，Hello, Rubyを出力するプログラムです．
+
+ print("Hello, Ruby.\n")
+
+まず,出力されるHello, Rubyをテストする場合のコードです．
+
+ #helloruby.rb
+ 
+ def helloruby
+   return "Hello, Ruby.\n"
+ end
+ 
+*test::unitで書いたテストコード
+
+ require 'test/unit'
+ require './helloruby'
+ 
+ class Test_Sample < Test::Unit::TestCase
+   def test_helloruby
+     assert_equal("Hello, Ruby.\n",helloruby)
+   end
+ end
+ print("Hello, ruby.\n")
+ 
+テストコードの内容は以下の通りである．
+Rubyで代表的なtest/unitというgemが提供されています．このプログラムの始め（require 'test/unit'）で，test/unitを呼び出します．
+Test::Unit::TestCaseを継承したクラスを用意し、test_xxxというメソッドを定義するとそのメソッドがテストの実行対象になり,ここではそれぞれTest_Sampleクラスとtest_hellorubyメソッドがそれに該当します。
+クラス名は大文字から始めるという規則がありますので注意してください．またメソッド名は，必ずtest_ から始めなくてはいけません．ここでは単純にtest_hellorubyとしています．実行してみると分かりますが，
+test_ がないとちゃんと動いてくれません．
+テストコードは，assert_equal(期待値),(実際の値)で実行結果を検証します.assert_equalは，ふたつの引数をとり，第１引数は期待している結果で，第２引数はテストの対象です．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
+補足ですが，test_xxxというメソッドはクラス内に複数あっても構いません.また、1つのテストメソッド内にassert_equalを複数書くのもOKです.
+（とはいえ、原則として1テストメソッドにつき1アサーションとするのが望ましい）
+
+このテストを実行すると以下のような出力になります．
+ /Users/Koki/rubynovice/spec/test_unit/list1% ruby test_helloruby.rb 
+ Hello, ruby.
+ Loaded suite test_helloruby
+ Started.
+ 
+ Finished in 0.000982 seconds.
+ 
+ 1 tests, 1 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+ 100% passed
+ 
+ 1018.33 tests/s, 1018.33 assertions/s
+
+!!!test::unitでの問題点
+この場合だと初心者であるRubyの学習者がスクリプトとテストコードを同時に書かなければならない．学習者は，テストコードの書き方も学ぶ必要があるので，学習コストや間違えるリスクが大きくなる．
+一番の問題点は，テキストを見ながら，その問題通りに書けないということです．先ほどの問題で説明すると，コードにreturnwo
+付け加えなければならないことや，printメソッドはreturnできないので，テストするときは return "Hello, Ruby.\n"と書き換えなければなりません．
+このようにtest::unitだとメソッドを書き換えないといけないことや，printメソッドをreturnで返すことができないというデメリットがある．
+そこでarubaはprintをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがあるので学習コストや間違えるリスクを削減できます．
+実際にarubaで書いたコードを元にして具体的に示します．
+
+!!!arubaで書いたテストコード
+先ほどと同じHello, Rubyを出力するプログラムをテストします．
+ 
+ # code.rb
+ 
+ def helloruby    
+   print("Hello, Ruby.\n")
+ end
+ 
+ 
+ #ruby_novice.rb
+ 
+ require 'thor'                                                                         
+ require "code.rb"
+ 
+ module RubyNovice
+   class CLI < Thor
+     desc 'my_helloruby', 'print helloruby'
+     def my_helloruby
+       helloruby
+     end
+ end
+ 
+require で，thorとcode.rbを呼び出しています．thorは，コマンドラインツールを作るためのgemです．
+引数の受け渡しを簡潔に書くことができ，オプションのパースやUsage Message の表示など簡単に作成できます．
+
+
+次にテストコードですが，arubaの場合printメソッドをreturnせずにそのままテストが可能になります．
+下記がこの問題でのテストコードです．
+
+
+ #ruby_novice_spec.rb
+ 
+ require 'spec_helper'
+ 
+ RSpec.describe 'ruby_novie command', type: :aruba do 
+   context 'helloruby', type: :helloruby do
+     before(:each) { run('ruby_novice my_helloruby') }
+     expected = "Hello, Ruby."
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ end
+
+
+テストコードの説明
+
+*run('ruby_novice my_helloruby')
+ruby_noviceのmy_hellorubyを実行する.
+
+*expected = "Hello, Ruby."
+期待している結果. test::unitでいう第１引数である．
+
+*expect(last_command_started).to be_successfully_executed
+status 0 で終了していることを確認. このコードでエラーなく終了したことを確認する．
+
+*expect(last_command_started).to have_output(expected)
+出力がcontentsであることを確認,正規表現も使用可能である．このコードで期待値=実際の値であるかを検証します．
+両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
+
