@@ -1,0 +1,80 @@
+require 'spec_helper'
+
+RSpec.describe 'ruby_novie command', type: :aruba do
+  context 'version option', type: :version do
+    before(:each) { run('ruby_novice v') }
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output("0.1.0") }
+  end
+
+  context 'help option', type: :help do
+    expected = `bundle exec exe/ruby_novice help`
+    before(:each) { run('ruby_novice help') }
+    it { expect(last_command_started).to be_successfully_executed }
+#    it { expect(last_command_started).to have_output(expected) }
+  end
+
+=begin
+  context 'print hello', type: :hello do
+    before(:each) { run('ruby_novice hello') }
+    expected = "Hello."
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+=end  
+
+  context 'helloruby', type: :helloruby do
+    before(:each) { run('ruby_novice1 my_helloruby') }
+    expected = "Hello, Ruby."
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'puts_and_p', type: :puts_and_p do
+    before(:each) { run('ruby_novice my_puts_and_p') }
+    expected = "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'kiritsubo', type: :kiritsubo do
+    before(:each) { run('ruby_novice my_kiritsubo') }
+    expected = "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとやむごとなき際にはあらぬがすぐれて時めきたまふありけり"
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'area_volume', type: :area_volume do
+    before(:each) { run('ruby_novice my_area_volume') }
+    expected = "表面積=2200\n体積=6000"
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'comment_sample', type: :comment_sample do
+    before(:each) { run('ruby_novice my_comment_sample') }
+    expected = "表面積=2200\n体積=6000"
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'greater_smaller', type: :greater_smaller do
+    before(:each) { run('ruby_novice my_greater_smaller') }
+    expected = "greater"
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+
+  context 'greater_smaller_else', type: :greater_smaller_else do
+    before(:each) { run('ruby_novice my_greater_smaller_else') }
+    expected = "greater"
+
+    it { expect(last_command_started).to be_successfully_executed }
+    it { expect(last_command_started).to have_output(expected) }
+  end
+end

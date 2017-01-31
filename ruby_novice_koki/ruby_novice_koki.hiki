@@ -1,6 +1,18 @@
 {{toc}}
 
+// 
 // 文書の構成
+
+// 序論    ①問う       目的(introduction)      自分の研究で明らかにしたい問いを示します．
+//         ②調べる     先行研究(introduction)  関連する先行研究を紹介し，本研究のオリジナリティを示します．
+//         ③選ぶ       資料と方法(Material and Method)  問いを明らかに検証するためのデータの概要と方法を示します．
+
+// 本論    ④確かめる   結果と分析(Results)     分析を経た調査の結果を示し,問いに答えます．    
+//         ⑤裏付ける   考察(Discussion)        なぜそのような結果になるのか，その理由を考えます．
+
+// 結論    ⑥まとめる   結論(Conclusion)         ①〜⑤の論証のプロセスを要約し，今後の課題を示します．
+ 
+
 // outputの時の判断基準
 // 先行研究，資料と方法：あるもんしらべた
 // 結果と分析：ないもんをつくった
@@ -17,5 +29,6 @@
 ![[ruby_novice_koki_introduction]]
 ![[ruby_novice_koki_method]]
 ![[ruby_novice_koki_results]]
-![[ruby_novice_koki_manual]]
+![[ruby_novice_koki_discussion]]
+![[ruby_novice_koki_conclusion]]
 ![[ruby_novice_koki_etc]]

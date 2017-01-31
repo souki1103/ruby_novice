@@ -1,5 +1,3 @@
-def hello_class
-
   class HelloWorld                   # class文
     def initialize(myname = "Ruby")  # initializeメソッド
       @name = myname                 # インスタンス変数の初期化
@@ -11,11 +9,11 @@ def hello_class
     end
   end
 
-
+def hello_test
   bob = HelloWorld.new("Bob")
   alice = HelloWorld.new("Alice")
   ruby = HelloWorld.new
 
   bob.hello
-
 end
+
