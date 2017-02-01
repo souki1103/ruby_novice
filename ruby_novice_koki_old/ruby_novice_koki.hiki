@@ -1,0 +1,291 @@
+{{toc}}
+!イントロダクショ
+卒業論文: GitHubを利用したRuby初心者学習ソフトの開発
+
+Rubyは本格的なオブジェクト指向プログラムが記述できる汎用性の高い日本発のオープンソースである．Rubyは初心者に分かり易く,プログラム教育にもスムーズに活用できるメリットがある[1].
+
+
+西谷研究室に在籍している学生は，Rubyプログラミングを修得するために初心者向けの問題集を使って学習している．
+さらに，進捗状況の管理や指導者からの添削をより容易におこなえるように改善するため，バージョン管理ソフトGitHubを利用するシステム(ruby_novice)を開発している
+そこでは，Rubyプログラミングで重要となるテスト駆動をおこなえる環境を提供している．これにより，学習者自身が出力チェックできるようにしRubyプログラミングにおけるテスト実行に自然と慣れるような学習形態を目指している．
+本研究はRuby初心者が文法だけでなく，Rubyプログラミングにおける振舞いを身につけるための支援ソフトを開発する．
+
+!関連研究
+!!Rubyとは
+!!Githubとは
+GitHubは，コンピュータープログラムの元となるソースコードをインターネット上で管理するためのサービスである.複数人が携わるソフトウェア開発において,ソースコードの共有や，バージョン管理といった作業は必要不可欠となる.
+またGitHubは，ソースコードを始めとするプログラム開発に必要なファイルやそれらの変更履歴等を保存する「リポジトリ」と呼ばれる場所があり，ソースコード等のバージョンを管理する機能の他，プログラム開発等に対する開発者間でのレビューやコメント機能，プログラム開発の進捗を管理する機能等が備わっている.
+本研究ではGithubを使用し，進捗状況の管理や指導者からの添削をより容易できるようにする[2].
+
+!!TDD (Test Driven Development)とは
+2000年代初期に開発手法として確立された「テスト駆動開発」（Test Driven Development）は,その後10年もの間で普及が進み,今や珍しくない開発スタイルの1つとなっている.
+国内でも「アジャイルアカデミー」「TDD Boot Camp」などによる推進・普及活動が各地で活発化し,認知が広がっている[3].
+
+
+テスト駆動開発は,簡単に言うとプログラムを書く前にテストコードを書くということです.プログラムが完成した後 にテストコードを書くのではなく,テストコードを先に書くことに大きな意味があります.
+それは先に仕様を決め,テストコードを書くことによって自分が次にやることが明確になるためです.これにより作業効率も上がります.最初にいきなりプログラムを書くと,整理されていないプログラムが出来てしまいます.
+しかしはじめにテストコードを書くことによって何をすべきか明確になるのでプログラムが書きやすくなります.他にTDDの目的としては,軽快なフィードバックの確保,きれいで動くコードの確保などによる開発の改善が挙げられます.
+テスト駆動開発は, テストファーストによる追加・変更とリファクタリングによる設計改善という2つの活動で構成されます. 継続的にユニットテストを使って設計検討やチェック, リファクタリングを行うことにより, テスタビリティに優れバグの少ないソースコードを実現することができます. 
+
+!!!TDDの流れ
+テスト駆動開発は以下のRed, Green, Refactoringという3つの作業サイクルを細かく繰り返してプログラミングを進めていきます．
+
+(1)作成したいプログラムの仕様を明確にする．
+
+
+(2) Red (失敗するテストを書く)
+
+
+(3) Green(テストを成功させる最低限のコードを書く)
+
+
+(4) Refactoring (コードを綺麗にする)
+
+リファクタリングは,コンピュータプログラミングにおいて,プログラムの外部から見た動作を変えずにソースコードの内部構造を整理することです．Red,Greenという言葉は,TDDで多用されるテスティングフレームワークの多くがテスト失敗を赤色表示で,テスト成功を緑色表示で通知することに由来しています．
+
+!!test::unitとは
+Ruby用のxUnit系の単体テストフレームワーク. Ruby1.8まではRuby本体に標準添付されていたが,Ruby1.9.1からはminitestというフレームワークが標準添付されている.
+test-unitがRuby1.8に標準添付されていた頃はほとんど機能拡張などがされず,RSpecなど新しいテスティングフレームワークから見劣りするものとなっていた.
+しかし,Ruby標準添付ではなく,１つのプロジェクトとして開発が進められるようになってからは活発に開発が進められている.Ruby本体のバージョンアップに関係なく新しいバージョンをリリースできるようになったことも開発が活発になった理由の一つである[4].
+
+!!arubaとは
+
+ArubaはCucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークでコマンドラインアプリケーションのテストを簡単で楽しいものにする拡張である．
+特徴としては以下の通りである[5]．
+*どんな言語で実装されたコマンドラインツールでもテスト可能.
+**テスト自体はRubyで書くが、テスト対象は Python の CLI ツールでも Golang の CLI ツールでもよい.
+*ファイルシステムやプロセス環境をヘルパーによって操作できる.
+**例えば read でファイルを読み込みできる.
+**例えば run で外部コマンドを実行し、その結果を have_output matcher などで検証できる.
+*ファイルシステムやプロセス環境はテストのたびにリセットされるので、 leaking state がない.
+**例えばテスト中に作成されたファイルはテスト終了後には消えている.
+*コミュ二ティーサポートが手厚い.
+*ドキュメント にあるとおりに動作することが期待できる.
+
+!なぜaruba? (aruba vs test::unit)
+Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
+test:unitやarubaで書くとどうなるかを具体的に書いたコードを比べて示していきます．
+
+!!test::unitで書いたテストコード
+たのしいRubyのテキストに記載されている問題で比較していきたいと思います．
+テキストの最初の問題は，Hello, Rubyを出力するプログラムです．
+
+ print("Hello, Ruby.\n")
+
+まず,出力されるHello, Rubyをテストする場合のコードです．
+
+ #helloruby.rb
+ 
+ def helloruby
+   return "Hello, Ruby.\n"
+ end
+ 
+*test::unitで書いたテストコード
+
+ require 'test/unit'
+ require './helloruby'
+ 
+ class Test_Sample < Test::Unit::TestCase
+   def test_helloruby
+     assert_equal("Hello, Ruby.\n",helloruby)
+   end
+ end
+ print("Hello, ruby.\n")
+ 
+テストコードの内容は以下の通りである．
+Rubyで代表的なtest/unitというgemが提供されています．このプログラムの始め（require 'test/unit'）で，test/unitを呼び出します．
+Test::Unit::TestCaseを継承したクラスを用意し、test_xxxというメソッドを定義するとそのメソッドがテストの実行対象になり,ここではそれぞれTest_Sampleクラスとtest_hellorubyメソッドがそれに該当します。
+クラス名は大文字から始めるという規則がありますので注意してください．またメソッド名は，必ずtest_ から始めなくてはいけません．ここでは単純にtest_hellorubyとしています．実行してみると分かりますが，
+test_ がないとちゃんと動いてくれません．
+テストコードは，assert_equal(期待値),(実際の値)で実行結果を検証します.assert_equalは，ふたつの引数をとり，第１引数は期待している結果で，第２引数はテストの対象です．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
+補足ですが，test_xxxというメソッドはクラス内に複数あっても構いません.また、1つのテストメソッド内にassert_equalを複数書くのもOKです.
+（とはいえ、原則として1テストメソッドにつき1アサーションとするのが望ましい）
+
+このテストを実行すると以下のような出力になります．
+ /Users/Koki/rubynovice/spec/test_unit/list1% ruby test_helloruby.rb 
+ Hello, ruby.
+ Loaded suite test_helloruby
+ Started.
+ 
+ Finished in 0.000982 seconds.
+ 
+ 1 tests, 1 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+ 100% passed
+ 
+ 1018.33 tests/s, 1018.33 assertions/s
+
+!!!test::unitでの問題点
+この場合だと初心者であるRubyの学習者がスクリプトとテストコードを同時に書かなければならない．学習者は，テストコードの書き方も学ぶ必要があるので，学習コストや間違えるリスクが大きくなる．
+一番の問題点は，テキストを見ながら，その問題通りに書けないということです．先ほどの問題で説明すると，コードにreturnwo
+付け加えなければならないことや，printメソッドはreturnできないので，テストするときは return "Hello, Ruby.\n"と書き換えなければなりません．
+このようにtest::unitだとメソッドを書き換えないといけないことや，printメソッドをreturnで返すことができないというデメリットがある．
+そこでarubaはprintをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがあるので学習コストや間違えるリスクを削減できます．
+実際にarubaで書いたコードを元にして具体的に示します．
+
+!!arubaで書いたテストコード
+先ほどと同じHello, Rubyを出力するプログラムをテストします．
+ 
+ # code.rb
+ 
+ def helloruby    
+   print("Hello, Ruby.\n")
+ end
+ 
+arubaの場合，printメソッドをreturnせずにそのままテストが可能になります．
+下記がこの問題でのテストコードです．
+
+ require 'spec_helper'
+ 
+ RSpec.describe 'ruby_novie command', type: :aruba do 
+   context 'helloruby', type: :helloruby do
+     before(:each) { run('ruby_novice my_helloruby') }
+     expected = "Hello, Ruby."
+     it { expect(last_command_started).to be_successfully_executed }
+     it { expect(last_command_started).to have_output(expected) }
+   end
+ end
+
+
+ require 'thor'                                                                         
+ require "code.rb"
+ 
+ module RubyNovice
+   class CLI < Thor
+     desc 'my_helloruby', 'print helloruby'
+     def my_helloruby
+       helloruby
+     end
+ end
+ 
+他にはCLIに特化しているなどがある．
+
+
+!ruby_novice command
+!!tagの表示の仕方 
+*grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
+
+  context 'version option', type: :version do
+  context 'help option', type: :help do
+  context 'print hello', type: :hello do
+  context 'helloruby', type: :helloruby do
+  context 'puts_and_p', type: :puts_and_p do
+  context 'kiritsubo', type: :kiritsubo do
+  context 'area_volume', type: :area_volume do
+  context 'comment_sample', type: :comment_sample do
+  context 'greater_smaller', type: :greater_smaller do
+  context 'greater_smaller_else', type: :greater_smaller_else do
+  context 'print_argv', type: :print_argv do
+  context 'happy_birth', type: :happy_birth do
+  context 'arg_arith', type: :arg_arith do
+  context 'read_text', type: :read_text do
+  context 'read_text_simple', type: :read_text_simple do
+  context 'read_text_oneline', type: :read_text_oneline do
+  context 'read_line', type: :read_line do
+  context 'simple_grep', type: :simple_grep do
+  context 'hello_ruby2', type: :hello_ruby2 do
+  context 'use_grep', type: :use_grep do
+  context 'scopetest', type: :scopetest do
+  context 'ad2heisei', type: :ad2heisei do
+  context 'if_elsif', type: :if_elsif do
+  context 'unless1', type: :unless1 do
+  context 'case1', type: :case1 do
+  context 'case_class', type: :case_class do
+  context 'times', type: :times do
+  context 'times2', type: :times2 do
+  context 'times3', type: :times3 do
+  context 'for1', type: :for1 do
+  context 'for_names', type: :for_names do
+  context 'while1', type: :while1 do
+  context 'while2', type: :while2 do
+  context 'while3', type: :while3 do
+  context 'until1', type: :until1 do
+  context 'while_not', type: :while_not do
+  context 'each_names', type: :each_names do
+  context 'each', type: :each do
+  context 'break_next', type: :break_next do
+  context 'times_with_param', type: :times_with_param do
+  context 'hello_with_name', type: :hello_with_name do
+  context 'hello_with_default', type: :hello_with_default do
+  context 'myloop1', type: :myloop1 do
+
+!!全章のテストの仕方
+
+*bundle exec rspec
+
+!!各章ごとのテストの仕方
+
+例: 1章(chap1)のテストをしたい時.
+*bundle exec rspec spec/chap1_spec.rb 
+
+*bundle exec rake chap 1
+
+実行例
+
+ /Users/Koki/ruby_novice% bundle exec rake chap 1   
+ 
+ ruby_novie command
+   version option
+     should be successfully executed
+     should have output: "0.1.0"
+   help option
+     should be successfully executed
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+   puts_and_p
+     should be successfully executed
+     should have output: "Hello,\n\tRuby.\n\"Hello,\n\tRuby.\""
+   kiritsubo
+     should be successfully executed
+     should have output: "いづれの御時にか女御更衣あまたさぶらいたまいけるなかに\nいとやむごとなき際にはあらぬがすぐれて時めきたまふありけり"
+   area_volume
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   comment_sample
+     should be successfully executed
+     should have output: "表面積=2200\n体積=6000"
+   greater_smaller
+     should be successfully executed
+     should have output: "greater"
+   greater_smaller_else
+     should be successfully executed
+     should have output: "greater"
+		 
+ Finished in 7.61 seconds (files took 1.03 seconds to load)
+ 17 examples, 0 failures
+ 
+!!各問題ごとのテストの仕方
+
+例: 各問題(helloruby)ごとにテストをしたい時.
+*bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+
+*bundle exec rake test_name helloruby
+
+実行例
+ /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
+ Run options: include {:type=>"helloruby"}
+ 
+ ruby_novie command
+   helloruby
+     should be successfully executed
+     should have output: "Hello, Ruby."
+		 
+ Finished in 0.87128 seconds (files took 0.81684 seconds to load)
+ 2 examples, 0 failures
+ 
+!aruba memo
+予約語(for,while)などは使えない.
+
+list6.4 for.rbは, for1.rbに変えている.
+
+list6.6 while.rbは, while1.rbに変えている.
+
+!考察
+!おわりに
+参考文献
+
+[1].「Ruby入門教育」，池本有里, 山本耕史, \url{http://www.shikoku-u.ac.jp/education/docs/Ser.A%20No.37,Ser.B%20No.34-20.pdf}.
+
+[2].「GitHub」，横田一輝, \url{https://kotobank.jp/word/GitHub-1725201}.
+
+[3]. テスト駆動開発／振る舞い駆動開発を始めるための基礎知識」，井芹洋輝 \url{http://www.atmarkit.co.jp/ait/articles/1403/05/news035_3.html}.

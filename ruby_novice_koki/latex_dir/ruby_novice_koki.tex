@@ -1,0 +1,57 @@
+\documentclass[12pt,a4paper]{jsarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage{listings}
+% to use japanese correctly, install jlistings.
+\lstset{
+  basicstyle={\small\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\small\itshape\color{red}},
+  keywordstyle={\small\bfseries\color{cyan}},
+  ndkeywordstyle={\small},
+  stringstyle={\small\color{blue}},
+  frame={tb},
+  breaklines=true,
+  numbers=left,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  lineskip=-0.5ex
+}
+\lstdefinestyle{customCsh}{
+  language={csh},
+  numbers=none,
+}
+\lstdefinestyle{customRuby}{
+  language={ruby},
+  numbers=left,
+}
+\lstdefinestyle{customTex}{
+  language={tex},
+  numbers=none,
+}
+\lstdefinestyle{customJava}{
+  language={java},
+  numbers=left,
+}
+\begin{document}
+\title{卒業論文\\
+\vspace{4cm} GitHubを利用したRuby初心者学習ソフトの開発}
+\author{ 関西学院大学　理工学部　情報科学科\\\\2549 浦田 航貴}
+\date{\vspace{3cm} 2017年  3月\\
+\vspace{3cm} 指導教員　　西谷　滋人　教授}
+\maketitle
+\tableofcontents
+
+\tableofcontents\begin{quote}\begin{verbatim}
+
+\end{verbatim}\end{quote}
+\include{introduction}
+\include{method}
+\include{results}
+\include{discussion}
+\include{conclusion}
+\include{etc}
+\end{document}

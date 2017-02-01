@@ -2,7 +2,7 @@ $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FIL
 begin
   require "chap_files"
 rescue LoadError
-  p "Load Error of ex_files in rubynovice.rb."
+  p "Load Error of chap_files in ruby_novice.rb."
   p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
   exit
 end
@@ -253,12 +253,11 @@ module RubyNovice
     def my_myloop1
       myloop1
     end
-=begin
+
     desc 'my_hello_class', 'print hello_class'
     def my_hello_class
-      hello_class
+      hello_test
     end
-=end
 
 
 

@@ -88,7 +88,6 @@ def convert_to_latex(file_name, option={})
   lines = File.readlines(file_name)
   cont = ""
   lines.each{|line|
-    p line
     if m=line.match(/\{\{attach_view\((.*),(.*)\)\}\}/)
       p line="\{\{attach_view\(#{m[1]}\)\}\}\n"
     elsif option[:latex_all]

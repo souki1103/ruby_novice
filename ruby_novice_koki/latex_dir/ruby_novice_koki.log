@@ -1,0 +1,445 @@
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2017.1.26)  1 FEB 2017 11:47
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**ruby_novice_koki.tex
+(./ruby_novice_koki.tex
+pLaTeX2e <2016/11/29> (based on LaTeX2e <2017/01/01>)
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls
+Document Class: jsarticle 2017/01/13 okumura, texjporg
+\jsc@mpt=\dimen118
+\jsc@mmm=\dimen119
+\jsc@smallskipamount=\skip41
+LaTeX Info: Redefining \rmfamily on input line 468.
+LaTeX Info: Redefining \sffamily on input line 471.
+LaTeX Info: Redefining \ttfamily on input line 474.
+LaTeX Info: Redefining \textmc on input line 477.
+LaTeX Info: Redefining \textgt on input line 479.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 540.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 731.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 731.
+\fullwidth=\dimen120
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 883.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 883.
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\@abstractbox=\box41
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\jsc@tocl@width=\dimen121
+\@lnumwidth=\dimen122
+\bibindent=\dimen123
+(/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jslogo.sty
+Package: jslogo 2016/07/14 okumura, texjporg
+LaTeX Info: Redefining \TeX on input line 94.
+LaTeX Info: Redefining \LaTeX on input line 147.
+LaTeX Info: Redefining \LaTeXe on input line 200.
+)
+\heisei=\count90
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2016/07/11 v4.12 LaTeX color/graphics driver for dvipdfmx (L
+3/ChoF)
+))
+\Gin@req@height=\dimen124
+\Gin@req@width=\dimen125
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: dvipdfmx.def on input line 147.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count91
+\lst@gtempboxa=\box42
+\lst@token=\toks16
+\lst@length=\count92
+\lst@currlwidth=\dimen126
+\lst@column=\count93
+\lst@pos=\count94
+\lst@lostspace=\dimen127
+\lst@width=\dimen128
+\lst@newlines=\count95
+\lst@lineno=\count96
+\lst@maxwidth=\dimen129
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count97
+\lst@skipnumbers=\count98
+\lst@framebox=\box43
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(./ruby_novice_koki.aux (./introduction.aux) (./method.aux) (./results.aux
+
+LaTeX Warning: Label `default' multiply defined.
+
+
+LaTeX Warning: Label `default' multiply defined.
+
+
+LaTeX Warning: Label `default' multiply defined.
+
+
+LaTeX Warning: Label `default' multiply defined.
+
+) (./discussion.aux) (./conclusion.aux) (./etc.aux))
+\openout1 = `ruby_novice_koki.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+\c@lstlisting=\count99
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 45.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 45.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 45.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 45.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 45.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 45.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 46.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 46.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 46.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 46.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 46.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 46.
+ (./ruby_novice_koki.toc
+[1
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 2.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `ruby_novice_koki.toc'.
+
+ (./ruby_novice_koki.toc)
+\tf@toc=\write4
+\openout4 = `ruby_novice_koki.toc'.
+
+ [2]
+\openout2 = `introduction.aux'.
+
+ (./introduction.tex
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 2.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 2.
+) [3
+
+]
+\openout2 = `method.aux'.
+
+ (./method.tex
+File: ../figs/./ruby_novice.002.jpg Graphic file (type eps)
+
+<../figs/./ruby_novice.002.jpg>
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 10.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 10.
+ [4
+
+
+]
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^91 in font cmr10!
+Missing character: There is no ^^a0 in font cmr10!
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^91 in font cmr10!
+Missing character: There is no ^^a1 in font cmr10!
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^91 in font cmr10!
+Missing character: There is no ^^a4 in font cmr10!
+Missing character: There is no ^^e2 in font cmr10!
+Missing character: There is no ^^91 in font cmr10!
+Missing character: There is no ^^a4 in font cmr10!
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+ [5]
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 69.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 69.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 69.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 69.
+ [6]) [7]
+\openout2 = `results.aux'.
+
+
+(./results.tex
+File: ../figs/./ruby_novice.001.jpg Graphic file (type eps)
+ <../figs/./ruby_novice.001.jpg> [8
+
+
+]
+Overfull \hbox (104.11185pt too wide) in paragraph at lines 101--101
+ [] \OT1/cmtt/m/n/10 $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBY
+NOVICE_NAME']}", __FILE__)[] 
+ []
+
+
+Overfull \hbox (25.36253pt too wide) in paragraph at lines 101--101
+ []   \OT1/cmtt/m/n/10 p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}"
+, __FILE__)[] 
+ []
+
+
+Overfull \hbox (25.36253pt too wide) in paragraph at lines 101--101
+ [] \OT1/cmtt/m/n/10 #    class_option :help, type: :boolean, aliases: '-h', de
+sc: 'help.'[] 
+ []
+
+
+Overfull \hbox (56.86226pt too wide) in paragraph at lines 101--101
+ [] \OT1/cmtt/m/n/10 #    class_option :debug, type: :boolean, aliases: '-d', d
+esc: 'debug mode'[] 
+ []
+
+[9] [10]
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+[11]
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+[12]
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+[13]
+File: ../figs/./ruby_novice.003.jpg Graphic file (type eps)
+ <../figs/./ruby_novice.003.jpg>
+File: ../figs/./ruby_novice.004.jpg Graphic file (type eps)
+ <../figs/./ruby_novice.004.jpg>
+File: ../figs/./ruby_novice.005.jpg Graphic file (type eps)
+
+<../figs/./ruby_novice.005.jpg>
+Underfull \hbox (badness 1184) in paragraph at lines 231--232
+[]\JY1/mc/m/n/10 自分の好きな名前 \OT1/cmr/m/n/10 (koki) \JY1/mc/m/n/10 をつけ
+たデ ィレクトリを作成し ， \OT1/cmr/m/n/10 "./lib/kok-
+ []
+
+[14] [15] [16] [17] [18]
+Overfull \hbox (11.11955pt too wide) in paragraph at lines 318--319
+[]\OT1/cmr/m/n/10 rspec \JY1/mc/m/n/10 で\OT1/cmr/m/n/10 , \JY1/mc/m/n/10 個人 
+\OT1/cmr/m/n/10 (koki) \JY1/mc/m/n/10 ごとのテストを実行するには\OT1/cmr/m/n/10
+ , \JY1/mc/m/n/10 環境変数 \OT1/cmr/m/n/10 RUBYNOVICE[]NAME
+ []
+
+[19] [20] [21] [22]
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 460.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 460.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 461.
+) [23]
+\openout2 = `discussion.aux'.
+
+
+(./discussion.tex
+LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 14.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 14.
+LaTeX Font Info:    Font shape `JY1/gt/m/it' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 14.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 14.
+LaTeX Font Info:    Font shape `JT1/gt/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 16.
+LaTeX Font Info:    Font shape `JY1/gt/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 16.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 16.
+ [24
+
+
+] [25] [26]) [27]
+\openout2 = `conclusion.aux'.
+
+ (./conclusion.tex) [28
+
+
+]
+\openout2 = `etc.aux'.
+
+ (./etc.tex
+Overfull \hbox (213.80708pt too wide) in paragraph at lines 2--3
+[]\OT1/cmr/m/n/10 [1] \JY1/mc/m/n/10 「\OT1/cmr/m/n/10 Ruby \JY1/mc/m/n/10 入門
+教育 」 ， 池本有里\OT1/cmr/m/n/10 , \JY1/mc/m/n/10 山本耕史\OT1/cmr/m/n/10 , \
+OT1/cmtt/m/n/10 http://www.shikoku-u.ac.jp/education/docs/Ser.A%20No.37,Ser.B%2
+0No.34-20.pdf. 
+ []
+
+
+Overfull \hbox (16.58119pt too wide) in paragraph at lines 8--9
+[]\OT1/cmr/m/n/10 [4] \JY1/mc/m/n/10 「\OT1/cmr/m/n/10 test-unit - Ruby \JY1/mc
+/m/n/10 用単体テストフレ ームワ ーク 」 \OT1/cmr/m/n/10 , \OT1/cmtt/m/n/10 http
+s://test-unit.github.io/ja/ 
+ []
+
+
+Overfull \hbox (140.204pt too wide) in paragraph at lines 10--11
+[]\OT1/cmr/m/n/10 [5] \JY1/mc/m/n/10 「\OT1/cmr/m/n/10 Qi-itaAruba gem \JY1/mc/
+m/n/10 で \OT1/cmr/m/n/10 CLI \JY1/mc/m/n/10 のテストを支援する 」 \OT1/cmr/m/n
+/10 , tbpgr, \OT1/cmtt/m/n/10 http://qiita.com/tbpgr/items/41730edcdb07bb5b59ad
+. 
+ []
+
+) [29
+
+
+] (./ruby_novice_koki.aux (./introduction.aux) (./method.aux)
+(./results.aux) (./discussion.aux) (./conclusion.aux) (./etc.aux))
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2520 strings out of 493683
+ 34761 string characters out of 6149653
+ 139357 words of memory out of 5000000
+ 6048 multiletter control sequences out of 15000+600000
+ 15981 words of font info for 73 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 34i,6n,51p,389b,1688s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on ruby_novice_koki.dvi (29 pages, 60120 bytes).
