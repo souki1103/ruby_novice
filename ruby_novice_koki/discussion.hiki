@@ -1,3 +1,4 @@
+{{toc}}
 !考察
 !!なぜaruba? (aruba vs test::unit)
 Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．

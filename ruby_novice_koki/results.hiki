@@ -1,7 +1,7 @@
 {{toc}}
 !結果と分析
 
-!!ruby_noviceの概要
+!!ruby_noviceの振る舞いと意義
 
 ruby_noviceは，情報環境であるGitHubを利用しRuby初心者が文法だけでなく，Rubyプログラミングにおける振舞いを身につけるための支援ソフトを開発する．
 またRubyプログラミングで重要となるテスト駆動をおこなえる環境を提供している．これにより，学習者自身が出力チェックできるようにしRubyプログラミングにおけるテスト実行に自然と慣れるような学習形態を目指している．
@@ -18,7 +18,8 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
 
 テストコードが書いているspecファイルを各章ごとに分け，ruby_novice.rbで呼び出すことにより，章ごとにテストを実行することを可能にした．
 
-以下がruby_novice.rbのコードの中身である. (たのしいRubyの１章のみ抜粋)
+以下がruby_novice.rbのコードの中身である. 
+「たのしいRuby」の１章に対応するコードのみを抜粋している．
 <<< ruby
  #ruby_novice.rb
  
@@ -100,10 +101,8 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
  end
 >>>
 
-
-
-以下がchap1_spec.rb のコードの中身である. 「たのしいRuby」の１章に対応する
-spec codeを書き出している．
+以下はchap1_spec.rb のコードの中身である. 
+「たのしいRuby」の１章に対応するspec codeを書き出している．
 
 <<< ruby
  #spec_chap1.rb
@@ -205,7 +204,7 @@ end
 >>>
 
 !!ruby_noviceの現状
-現状は,たのしいRubyの第1章~第7章までのテストコードを書き実装できる．
+現状は,「たのしいRuby」の第1章~第7章までのテストコードを書き実装できる．
 各章の概要は，以下の通りである．
 *第1章 (list1.1 ~ 1.7):  putsメソッドやpメソッド
 *第3章 (list3.1 ~ 3.11): ファイルの読み込み
@@ -214,9 +213,10 @@ end
 *第6章 (list6.1 ~ 6.13): 繰り返し(for,times,whileなど)
 *第7章 (list7.1 ~ 7.4):  メソッド	
 
-(注意)
-
-予約語(for,while)などは使えないため，以下の問題は名前を変更している．
+!!!注意
+「たのしいRuby」の課題では，通し番号以外に，コードに対応する適当なプログラム名が付されている．
+しかし，Rub言語の予約語(for,whileなど)はコード中で使えないため，
+以下の問題は名前を変更して"1"をつけている．
 
 *list5.3:  unless.rb → unless1.rbに変更．
 *list5.4:  case.rb → case1.rbに変更．
@@ -224,7 +224,6 @@ end
 *list6.6:  while.rb → while11.rbに変更.
 *list6.9:  until.rb → until1.rbに変更．
 *list7.4:  myloop.rb → myloop1.rbに変更．
-
 
 !!ruby_noviceの作業の流れ
 
@@ -247,7 +246,7 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 
 
 !!ruby_noviceの使用法
-*自分の好きな名前(koki)をつけたディレクトリを作成し，"./lib/koki/chap_files.rb"を準備.
+1. 自分の好きな名前(koki)をつけたディレクトリを作成し，"./lib/koki/chap_files.rb"を準備.
 
 
 コード例
@@ -264,7 +263,7 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 	(注) # はコメントアウト．
 >>>
 
-*chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
+2. chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
 コード例 (たのしいRuby第１章)
 <<<
  #/Users/Koki/ruby_novice% cat lib/koki/chap1.rb
@@ -333,15 +332,15 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
  end
  
 >>>
-*rspecで,個人(koki)ごとのテストを実行するには, 環境変数RUBYNOVICE_NAMEにディレクトリ名を入れる.
-**(csh,tcsh)setenv RUBYNOVICE_NAME koki
-**(bash,zsh)export RUBYNOVICE_NAME=koki
+3. rspecで,個人(koki)ごとのテストを実行するには, 環境変数RUBYNOVICE_NAMEにディレクトリ名を入れる.
+*(csh,tcsh)setenv RUBYNOVICE_NAME koki
+*(bash,zsh)export RUBYNOVICE_NAME=koki
 
 
 !!ruby_noviceのコマンド
 !!!tagの表示の仕方 
-*grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
-typeは各章の各問題名の相当する．各問題ごとにテストする時に便利になる．
+1. grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
+typeは各章の各問題名に相当する．各問題ごとにテストする時の便宜となる．
 <<<
   context 'version option', type: :version do
   context 'help option', type: :help do
@@ -389,15 +388,14 @@ typeは各章の各問題名の相当する．各問題ごとにテストする�
 >>>
 !!全章のテストの仕方
 
-*bundle exec rspec
+1. bundle exec rspec
 すべての章のテストを一括して実行できる．
 
 !!各章ごとのテストの仕方
 
 例: 1章(chap1)のテストをしたい時.
-*bundle exec rspec spec/chap1_spec.rb 
-
-*bundle exec rake chap 1
+1. bundle exec rspec spec/chap1_spec.rb 
+2. bundle exec rake chap 1
 
 実行例
 <<<
@@ -438,9 +436,8 @@ typeは各章の各問題名の相当する．各問題ごとにテストする�
 !!!各問題ごとのテストの仕方
 
 例: 各問題(helloruby)ごとにテストをしたい時.
-*bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
-
-*bundle exec rake test_name helloruby
+1. bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+2. bundle exec rake test_name helloruby
 
 実行例
 <<<
@@ -463,9 +460,8 @@ typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.
 
 例: hellorubyの実行結果の出力
 
-*bundle exec exe/ruby_novice my_helloruby
-
-*bundle exec rake/output helloruby
+1. bundle exec exe/ruby_novice my_helloruby
+2. bundle exec rake/output helloruby
 
 実行例
 <<< ruby
