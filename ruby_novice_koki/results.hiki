@@ -1,3 +1,4 @@
+{{toc}}
 !結果と分析
 
 !!ruby_noviceの概要
@@ -11,15 +12,14 @@ ruby_noviceは，情報環境であるGitHubを利用しRuby初心者が文法�
 {{attach_view(ruby_novice.001.jpg, ruby_novice_koki)}}
 
 ruby_noviceの構造は，上記の図のように３つに分かれています．
-*chap_files.rb (chap1.rb, chap2.rb ...) : Text(たのしいRuby)のコードを書く部分.
-*ruby_novice.rb :  chap_files.rbを呼び出している．
-*spec_files.rb  :  runで外部コマンドを入力して，出力結果 = 期待している値の検証．
+:chap_files.rb (chap1.rb, chap2.rb ...): Text(たのしいRuby)のコードを書く部分.
+:ruby_novice.rb:  chap_files.rbを呼び出している．
+:spec_files.rb:  runで外部コマンドを入力して，出力結果 = 期待している値の検証．
 
 テストコードが書いているspecファイルを各章ごとに分け，ruby_novice.rbで呼び出すことにより，章ごとにテストを実行することを可能にした．
 
-
-*以下がruby_novice.rbのコードの中身である. (たのしいRubyの１章のみ抜粋)
-<<<
+以下がruby_novice.rbのコードの中身である. (たのしいRubyの１章のみ抜粋)
+<<< ruby
  #ruby_novice.rb
  
  $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
@@ -102,9 +102,10 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
 
 
 
-*以下がchap1_spec.rb のコードの中身である. (たのしいRubyの１章のみ抜粋)
+以下がchap1_spec.rb のコードの中身である. 「たのしいRuby」の１章に対応する
+spec codeを書き出している．
 
-<<<
+<<< ruby
  #spec_chap1.rb
  require 'spec_helper'
  
@@ -182,6 +183,27 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
  end
  
 >>>
+
+chap1_spec.rbなどが呼び出すspec_helper.rbは以下の通りである．$LOAD_PATHにgemの標準構造の
+場合に配置されるlibを入れている．また，その後はsupport directoryであるが，RUBYのversionが
+古い場合にも対応するように設定している．
+
+<<< ruby
+#spec_helper.rb
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'ruby_novice'
+#require 'aruba/rspec'
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+
+if RUBY_VERSION < '1.9.3'
+  ::Dir.glob(::File.expand_path('../support/*.rb', __FILE__)).each { |f| require File.join(File.dirname(f), File.basename(f, '.rb')) }
+  ::Dir.glob(::File.expand_path('../support/**/*.rb', __FILE__)).each { |f| require File.join(File.dirname(f), File.basename(f, '.rb')) }
+else
+  ::Dir.glob(::File.expand_path('../support/*.rb', __FILE__)).each { |f| require_relative f }
+  ::Dir.glob(::File.expand_path('../support/**/*.rb', __FILE__)).each { |f| require_relative f }
+end
+>>>
+
 !!ruby_noviceの現状
 現状は,たのしいRubyの第1章~第7章までのテストコードを書き実装できる．
 各章の概要は，以下の通りである．
@@ -412,6 +434,7 @@ typeは各章の各問題名の相当する．各問題ごとにテストする�
  Finished in 7.61 seconds (files took 1.03 seconds to load)
  17 examples, 0 failures
 >>>
+
 !!!各問題ごとのテストの仕方
 
 例: 各問題(helloruby)ごとにテストをしたい時.
@@ -434,7 +457,8 @@ Finished in 0.87128 seconds (files took 0.81684 seconds to load)
 >>>
 
 問題名は,上記のgrep type spec/ruby_novice_spec.rbで調べることができる．
-typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.rb)が，そのまま使えるのでテストも簡単にでき，問題名で中身のコードの内容も把握できる． 
+typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.rb)が，そのまま使えるのでテストも簡単にでき，問題名で中身のコードの内容も把握できる．
+
 !!!各問題ごとの実行結果の出力
 
 例: hellorubyの実行結果の出力

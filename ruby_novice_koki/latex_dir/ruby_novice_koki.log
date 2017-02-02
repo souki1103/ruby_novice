@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2017.1.26)  1 FEB 2017 12:25
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2017.1.26)  2 FEB 2017 13:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -162,17 +162,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 5.76599pt on input line 45.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 46.
+(Font)              scaled to size 9.60999pt on input line 47.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 46.
+(Font)              scaled to size 9.60999pt on input line 47.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 46.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 46.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 46.
+(Font)              scaled to size 13.83836pt on input line 47.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 13.83836pt on input line 46.
+(Font)              scaled to size 13.83836pt on input line 47.
  (./ruby_novice_koki.toc
 [1
 
@@ -185,7 +185,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 2.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 4.805pt on input line 2.
-)
+ [2])
 \tf@toc=\write3
 \openout3 = `ruby_novice_koki.toc'.
 
@@ -193,14 +193,14 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 \tf@toc=\write4
 \openout4 = `ruby_novice_koki.toc'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
- [2]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+ [3]
 \openout2 = `introduction.aux'.
 
 
@@ -209,7 +209,7 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 2.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 11.53198pt on input line 2.
-) [3
+) [4
 
 ]
 \openout2 = `method.aux'.
@@ -221,7 +221,7 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 10.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 10.
- [4
+ [5
 
 
 ]
@@ -238,7 +238,7 @@ Missing character: There is no ^^e2 in font cmr10!
 Missing character: There is no ^^91 in font cmr10!
 Missing character: There is no ^^a4 in font cmr10!
 
-[5]
+[6]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
@@ -247,12 +247,12 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 69.
- [6]) [7]
+ [7]) [8]
 \openout2 = `results.aux'.
 
  (./results.tex
 File: ../figs/./ruby_novice.001.jpg Graphic file (type eps)
- <../figs/./ruby_novice.001.jpg> [8
+ <../figs/./ruby_novice.001.jpg> [9
 
 
 ]
@@ -279,31 +279,7 @@ Overfull \hbox (56.86226pt too wide) in paragraph at lines 101--101
 esc: 'debug mode'[] 
  []
 
-[9] [10]
-Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
- []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
-xecuted }[] 
- []
-
-
-Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
- []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
-xecuted }[] 
- []
-
-[11]
-Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
- []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
-xecuted }[] 
- []
-
-
-Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
- []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
-xecuted }[] 
- []
-
-
+[10] [11]
 Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
  []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
 xecuted }[] 
@@ -333,7 +309,31 @@ Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
 xecuted }[] 
  []
 
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
 [13]
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+
+Overfull \hbox (14.86263pt too wide) in paragraph at lines 181--181
+ []     \OT1/cmtt/m/n/10 it { expect(last_command_started).to be_successfully_e
+xecuted }[] 
+ []
+
+[14]
 File: ../figs/./ruby_novice.003.jpg Graphic file (type eps)
  <../figs/./ruby_novice.003.jpg>
 File: ../figs/./ruby_novice.004.jpg Graphic file (type eps)
@@ -346,14 +346,14 @@ Underfull \hbox (badness 1184) in paragraph at lines 231--232
 たデ ィレクトリを作成し ， \OT1/cmr/m/n/10 "./lib/kok-
  []
 
-[14] [15] [16] [17] [18]
+[15] [16] [17] [18] [19]
 Overfull \hbox (11.11955pt too wide) in paragraph at lines 318--319
 []\OT1/cmr/m/n/10 rspec \JY1/mc/m/n/10 で\OT1/cmr/m/n/10 , \JY1/mc/m/n/10 個人 
 \OT1/cmr/m/n/10 (koki) \JY1/mc/m/n/10 ごとのテストを実行するには\OT1/cmr/m/n/10
  , \JY1/mc/m/n/10 環境変数 \OT1/cmr/m/n/10 RUBYNOVICE[]NAME
  []
 
-[19] [20] [21] [22]
+[20] [21] [22] [23]
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -366,7 +366,7 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 460.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 6.72699pt on input line 461.
-) [23]
+) [24]
 \openout2 = `discussion.aux'.
 
 
@@ -389,13 +389,13 @@ LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 16.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 16.
- [24
+ [25
 
 
-] [25] [26]) [27]
+] [26] [27]) [28]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex) [28
+ (./conclusion.tex) [29
 
 
 ]
@@ -424,7 +424,7 @@ m/n/10 で \OT1/cmr/m/n/10 CLI \JY1/mc/m/n/10 のテストを支援する 」 \O
 . 
  []
 
-) [29
+) [30
 
 
 ] (./ruby_novice_koki.aux (./introduction.aux) (./method.aux)
@@ -442,4 +442,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  34i,6n,51p,389b,1688s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ruby_novice_koki.dvi (29 pages, 60156 bytes).
+Output written on ruby_novice_koki.dvi (30 pages, 64548 bytes).
