@@ -230,7 +230,7 @@ end
 !!!caption:学習の流れ.
 {{attach_view(ruby_novice.003.jpg, ruby_novice_koki)}}
 
-上記の図のようにRuby学習者はRed, Greenという作業サイクルを繰り返してプログラミングを進めていきます．
+図3のようにRuby学習者はRed, Greenという作業サイクルを繰り返してプログラミングを進めていきます．
 
 #作成したいプログラムの仕様を明確にする．
 #Red (テストに失敗)
@@ -238,7 +238,7 @@ end
 #Greenになると次の問題に進む．
 
 Red,Greenという言葉は,TDDで多用されるテスティングフレームワークの多くがテスト失敗を赤色表示で,テスト成功を緑色表示で通知することに由来している．
-
+図4がテストにパスした時の出力結果で，図5がテストに失敗した時の出力結果である．色を見るだけでテストをパスしているか失敗しているか一目瞭然である．
 !!!caption:Greenの出力結果．
 {{attach_view(ruby_novice.004.jpg, ruby_novice_koki)}}
 !!!caption:Redの出力結果.
@@ -246,11 +246,22 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 
 
 !!ruby_noviceの使用法
-1. 自分の好きな名前(koki)をつけたディレクトリを作成し，"./lib/koki/chap_files.rb"を準備.
+
+1. 自分の好きな名前(koki)をつけたディレクトリを作成する.
+
+2. ./lib/koki/chap_files.rbを準備する.
+
+3. chap_files.rbの中にrequire "chap1"と書く.
+
+4. chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
+
+5. rspecで，個人ごとの検査を実行する場合,環境変数RUBYNOVICE_NAMEにディレクトリ名(koki)を入れる.
+*  (csh,tcsh)setenv RUBYNOVICE_NAME koki
+*  (bash,zsh)export RUBYNOVICE_NAME=koki
 
 
 コード例
-<<<
+<<< ruby
   #/Users/Koki/ruby_novice% cat lib/koki/chap_files.rb
 	
 	 require "chap1"
@@ -263,9 +274,8 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 	(注) # はコメントアウト．
 >>>
 
-2. chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
 コード例 (たのしいRuby第１章)
-<<<
+<<< ruby
  #/Users/Koki/ruby_novice% cat lib/koki/chap1.rb
  
  def helloruby     
@@ -332,16 +342,13 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
  end
  
 >>>
-3. rspecで,個人(koki)ごとのテストを実行するには, 環境変数RUBYNOVICE_NAMEにディレクトリ名を入れる.
-*(csh,tcsh)setenv RUBYNOVICE_NAME koki
-*(bash,zsh)export RUBYNOVICE_NAME=koki
 
 
 !!ruby_noviceのコマンド
 !!!tagの表示の仕方 
 1. grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
 typeは各章の各問題名に相当する．各問題ごとにテストする時の便宜となる．
-<<<
+<<< ruby
   context 'version option', type: :version do
   context 'help option', type: :help do
   context 'print hello', type: :hello do
@@ -398,7 +405,7 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 2. bundle exec rake chap 1
 
 実行例
-<<<
+<<< ruby
  /Users/Koki/ruby_novice% bundle exec rake chap 1   
  
  ruby_novie command
@@ -440,7 +447,7 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 2. bundle exec rake test_name helloruby
 
 実行例
-<<<
+<<< ruby
 /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
 Run options: include {:type=>"helloruby"}
 
