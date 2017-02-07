@@ -63,7 +63,7 @@ Finished in 0.000982 seconds.
 
 !!!arubaで書いたテストコード
 先ほどと同じHello, Rubyを出力するプログラムをテストします．
-<<<
+<<< ruby
 # code.rb
 
 def helloruby    
@@ -71,7 +71,7 @@ def helloruby
 end
 >>>
 
-<<<
+<<< ruby
 #ruby_novice.rb
 
 require 'thor'                                                                         
