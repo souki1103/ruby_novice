@@ -145,7 +145,7 @@ module RubyNovice
 
     desc 'my_ad2heisei ARGV0', 'print ad2heisei ARGV0'
     def my_ad2heisei(argv0)
-      ARGV[0] = argv0      
+      ARGV[0] = argv0
       ad2heisei
     end
 
