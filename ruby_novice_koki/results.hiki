@@ -1,5 +1,11 @@
 {{toc}}
-!結果と分析
+!開発ソフトの仕様と使用法
+
+本研究で開発したソフトruby_noviceは
+#rubyの標準ライブラリ配布機構であるrubygemsに従っている
+#githubを使って生徒のレポート提出機構を提供している
+#arubaによって生徒自身によるテスト機能を提供している
+これらの使い方を理解していただくために，ここで少し詳しく紹介する．
 
 !!ruby_noviceの振る舞いと意義
 
@@ -180,10 +186,9 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
      it { expect(last_command_started).to have_output(expected) }
    end
  end
- 
 >>>
 
-chap1_spec.rbなどが呼び出すspec_helper.rbは以下の通りである．$LOAD_PATHにgemの標準構造の
+chap1_spec.rbなどが呼び出すspec_helper.rbは以下の通りである．\$LOAD_PATHにgemの標準構造の
 場合に配置されるlibを入れている．また，その後はsupport directoryであるが，RUBYのversionが
 古い場合にも対応するように設定している．
 
@@ -275,6 +280,7 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 >>>
 
 コード例 (たのしいRuby第１章)
+
 <<< ruby
  #/Users/Koki/ruby_novice% cat lib/koki/chap1.rb
  
@@ -340,14 +346,14 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
      print "smaller\n"
    end
  end
- 
 >>>
 
 
-!!ruby_noviceのコマンド
+//!!ruby_noviceのコマンド
 !!!tagの表示の仕方 
 1. grep type spec/ruby_novice_spec.rb  で全てのcontextとtypeを表示.
 typeは各章の各問題名に相当する．各問題ごとにテストする時の便宜となる．
+
 <<< ruby
   context 'version option', type: :version do
   context 'help option', type: :help do
@@ -393,6 +399,7 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
   context 'hello_with_default', type: :hello_with_default do
   context 'myloop1', type: :myloop1 do
 >>>
+
 !!全章のテストの仕方
 
 1. bundle exec rspec
@@ -405,6 +412,7 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 2. bundle exec rake chap 1
 
 実行例
+
 <<< ruby
  /Users/Koki/ruby_novice% bundle exec rake chap 1   
  
@@ -447,6 +455,7 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 2. bundle exec rake test_name helloruby
 
 実行例
+
 <<< ruby
 /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
 Run options: include {:type=>"helloruby"}
@@ -471,6 +480,7 @@ typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.
 2. bundle exec rake/output helloruby
 
 実行例
+
 <<< ruby
 /Users/Koki/ruby_novice% bundle exec rake output helloruby
 Hello, Ruby.

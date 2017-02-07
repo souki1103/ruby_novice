@@ -1,0 +1,32 @@
+class HelloWorld                   # class’Ê¸
+  def initialize(myname = "Ruby")  # initialize’¥á’¥½’¥Ã’¥É
+    @name = myname                 # ’¥¤’¥ó’¥¹’¥¿’¥ó’¥¹’ÊÑ’¿ô’¤Î’½é’´ü’²½
+  end
+
+
+  def hello                        # ’¥¤’¥ó’¥¹’¥¿’¥ó’¥¹’¥á’¥½’¥Ã’¥É
+    puts "Hello,world. I am #{@name}."
+  end
+end
+
+def hello_test
+    bob = HelloWorld.new("Bob")
+    alice = HelloWorld.new("Alice")
+    ruby = HelloWorld.new
+
+    bob.hello
+end
+
+ 
+
+class HelloWorld2
+
+    def name
+      @name
+    end
+
+
+    def name=(value)
+      @name = value
+    end
+end

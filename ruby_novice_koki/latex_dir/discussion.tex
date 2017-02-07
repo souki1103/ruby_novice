@@ -1,3 +1,4 @@
+
 \section{考察}
 \subsection{なぜaruba? (aruba vs test::unit)}
 Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
@@ -62,13 +63,13 @@ Finished in 0.000982 seconds.
 
 \subsubsection{arubaで書いたテストコード}
 先ほどと同じHello, Rubyを出力するプログラムをテストします．
-\begin{quote}\begin{verbatim}
+\begin{lstlisting}[style=customRuby]
 # code.rb
 
 def helloruby    
   print("Hello, Ruby.\n")
 end
-\end{verbatim}\end{quote}\begin{quote}\begin{verbatim}
+\end{lstlisting}\begin{lstlisting}[style=customRuby]
 #ruby_novice.rb
 
 require 'thor'                                                                         
@@ -81,7 +82,7 @@ module RubyNovice
       helloruby
     end
 end
-\end{verbatim}\end{quote}
+\end{lstlisting}
 require で，thorとcode.rbを呼び出しています．thorは，コマンドラインツールを作るためのgemです．
 引数の受け渡しを簡潔に書くことができ，オプションのパースやUsage Message の表示など簡単に作成できます．
 
