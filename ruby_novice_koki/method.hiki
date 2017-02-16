@@ -4,25 +4,24 @@ ruby_noviceが想定している操作法について概略を記す．
 !!!Github
 本研究ではGithubを使用し，進捗状況の管理や指導者からの添削をより容易できるようにする.Githubは，コンピュータープログラムの元となるソースコードをインターネット上で管理するためのサービスである.複数人が携わるソフトウェア開発において,ソースコードの共有や，バージョン管理といった作業は必要不可欠となる[2].本研究では，下記の図のようにGithubを利用している．
 
-!!!!caption:Githubのしくみ
-{{attach_view(ruby_novice.002.jpg, ruby_novice_koki)}}
+!!!!caption:Githubのしくみ.
+{{attach_view(ruby_novice.006.jpg, ruby_novice_koki)}}
 
-ここからは，上記の図を参考にしながらGithubを利用した作業の流れを段階を踏んで示します．
+ここからは，図1を参考にしながらGithubを利用した作業の流れを段階を踏んで示します．
 !!!進捗状況の報告
-まずは本研究での進捗状況の報告までの簡単な流れは以下の通りである．
-
+まずは本研究での進捗状況の報告までの簡単な流れは以下の通りである．(git init, forkが済んでいると仮定)
 #ファイルを作成する．
 #git remote -v: originが自分のアドレスでupstreamが先生のアドレスであるか確かめる．
 #git add -A: 編集操作をlocalのrepositoryに登録.
 #git commit: ファイルの追加や変更の履歴をリポジトリに保存．
-#git push origin master: 図の①の操作により,Githubのoriginへmasterをpush.
-#pull request: 図の②の操作により,Githubで自分のサイトに載せた変更を，先生のサイトに変更希望として出す．コメント欄で変更詳細を伝えることが可能．
+#git push origin master: Githubのoriginへmasterをpush.
+#pull request: Githubで自分のサイトに載せた変更を，先生のサイトに変更希望として出す．コメント欄で変更詳細を伝えることが可能．
 
 基本的にローカルリポジトリで作業を行い，その作業内容をリモートポジトリ(Github)へプッシュする流れで行う．
 
 !!!添削後の作業の流れ
-#先生がファイルを添削後,図の⑤の操作により，リモートリポジトリ(Github)にgit push．
-#git pull upstream master: 図の⑤の操作により，自分の開発中のファイルに反映．
+#先生がファイルを添削後,リモートリポジトリ(Github)にgit push．
+#git pull upstream master: 自分の開発中のファイルに反映．
 
 このサイクルを繰り返して，研究または，課題を進めていきます．
 

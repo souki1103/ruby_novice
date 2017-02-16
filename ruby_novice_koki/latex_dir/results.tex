@@ -1,28 +1,40 @@
 
-\section{結果と分析}
+\section{開発ソフトの仕様と使用法}
+本研究で開発したソフトruby\_noviceは
+
+\begin{enumerate}
+\item rubyの標準ライブラリ配布機構であるrubygemsに従っている
+\item githubを使って生徒のレポート提出機構を提供している
+\item arubaによって生徒自身によるテスト機能を提供している
+\end{enumerate}
+これらの使い方を理解していただくために，ここで少し詳しく紹介する．
+
 \subsection{ruby\_noviceの振る舞いと意義}
 ruby\_noviceは，情報環境であるGitHubを利用しRuby初心者が文法だけでなく，Rubyプログラミングにおける振舞いを身につけるための支援ソフトを開発する．
 またRubyプログラミングで重要となるテスト駆動をおこなえる環境を提供している．これにより，学習者自身が出力チェックできるようにしRubyプログラミングにおけるテスト実行に自然と慣れるような学習形態を目指している．
 
 \subsection{ruby\_noviceの仕組み}
-\begin{figure}[htbp]\begin{center}
-\includegraphics[width=6cm,bb=0 0 442 432]{../figs/./ruby_novice.001.jpg}
+
+\begin{figure}[H]\begin{center}
+\includegraphics[width=12cm,bb= 0 0 737 553]{../figs/./ruby_novice.001.jpg}
 \caption{ruby\_noviceの構造．}
+
 \label{default}\end{center}\end{figure}
-ruby\_noviceの構造は，上記の図のように３つに分かれています．
-\begin{description}
-\item[chap\_files.rb (chap1.rb, chap2.rb ...)]  Text(たのしいRuby)のコードを書く部分.
+ruby\_noviceの構造は，図２のように３つに分かれています．
+\begin{itemize}
 
-\item[ruby\_novice.rb]   chap\_files.rbを呼び出している．
+\item chap\_files.rb (chap1.rb, chap2.rb ...) : Text(たのしいRuby)のコードを書く部分.
 
-\item[spec\_files.rb]   runで外部コマンドを入力して，出力結果 = 期待している値の検証．
+\item ruby\_novice.rb : chap\_files.rbを呼び出している．
 
-\end{description}
+\item spec\_files.rb : runで外部コマンドを入力して，出力結果 = 期待している値の検証．
+
+\end{itemize}
 テストコードが書いているspecファイルを各章ごとに分け，ruby\_novice.rbで呼び出すことにより，章ごとにテストを実行することを可能にした．
 
 以下がruby\_novice.rbのコードの中身である. 
 「たのしいRuby」の１章に対応するコードのみを抜粋している．
-\begin{lstlisting}[style=customRuby]
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
  #ruby_novice.rb
  
  $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
@@ -102,9 +114,11 @@ ruby\_noviceの構造は，上記の図のように３つに分かれていま�
    end
  end
 \end{lstlisting}
+
 以下はchap1\_spec.rb のコードの中身である. 
-「たのしいRuby」の１章に対応するspec codeを書き出している．
-\begin{lstlisting}[style=customRuby]
+Text(たのしいRuby)の１章に対応するspec codeを書き出している．
+
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
  #spec_chap1.rb
  require 'spec_helper'
  
@@ -181,10 +195,12 @@ ruby\_noviceの構造は，上記の図のように３つに分かれていま�
    end
  end
 \end{lstlisting}
+
 chap1\_spec.rbなどが呼び出すspec\_helper.rbは以下の通りである．\$LOAD\_PATHにgemの標準構造の
 場合に配置されるlibを入れている．また，その後はsupport directoryであるが，RUBYのversionが
 古い場合にも対応するように設定している．
-\begin{lstlisting}[style=customRuby]
+
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
 #spec_helper.rb
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'ruby_novice'
@@ -200,19 +216,21 @@ else
 end
 \end{lstlisting}
 \subsection{ruby\_noviceの現状}
-現状は,「たのしいRuby」の第1章~第7章までのテストコードを書き実装できる．
+
+現状は,「たのしいRuby」の第1章〜第7章までのテストコードを書き実装できる．
 各章の概要は，以下の通りである．
 
 \begin{itemize}
-\item 第1章 (list1.1 ~ 1.7):  putsメソッドやpメソッド
-\item 第3章 (list3.1 ~ 3.11): ファイルの読み込み
-\item 第4章 (list4.1):        ローカル変数とグローバル変数
-\item 第5章 (list5.1 ~ 5.5):  条件判断(if, unlessなど)
-\item 第6章 (list6.1 ~ 6.13): 繰り返し(for,times,whileなど)
-\item 第7章 (list7.1 ~ 7.4):  メソッド
+\item 第1章 (list1.1 〜 1.7):  putsメソッドやpメソッド.
+\item 第3章 (list3.1 〜 3.11): ファイルの読み込み.
+\item 第4章 (list4.1):        ローカル変数とグローバル変数.
+\item 第5章 (list5.1 〜 5.5):  条件判断.(if, unlessなど)
+\item 第6章 (list6.1 〜 6.13): 繰り返し.(for,times,whileなど)
+\item 第7章 (list7.1 〜 7.4):  メソッド.
 \end{itemize}
 \subsubsection{注意}
-「たのしいRuby」の課題では，通し番号以外に，コードに対応する適当なプログラム名が付されている．
+
+「たのしいRuby」の課題では，問題番号以外に，コードに対応する適当なプログラム名が付されている．
 しかし，Rub言語の予約語(for,whileなど)はコード中で使えないため，
 以下の問題は名前を変更して"1"をつけている．
 
@@ -225,11 +243,12 @@ end
 \item list7.4:  myloop.rb → myloop1.rbに変更．
 \end{itemize}
 \subsection{ruby\_noviceの作業の流れ}
-\begin{figure}[htbp]\begin{center}
-\includegraphics[width=6cm,bb=0 0 442 432]{../figs/./ruby_novice.003.jpg}
+\begin{figure}[H]\begin{center}
+\includegraphics[width=12cm,bb= 0 0 737 553]{../figs/./ruby_novice.003.jpg}
 \caption{学習の流れ.}
 \label{default}\end{center}\end{figure}
-図3のようにRuby学習者はRed, Greenという作業サイクルを繰り返してプログラミングを進めていきます．
+
+図3のようにRuby学習者はRed, Greenという作業サイクルを繰り返してプログラミングを進めていく．
 
 \begin{enumerate}
 \item 作成したいプログラムの仕様を明確にする．
@@ -240,15 +259,16 @@ end
 Red,Greenという言葉は,TDDで多用されるテスティングフレームワークの多くがテスト失敗を赤色表示で,テスト成功を緑色表示で通知することに由来している．
 図4がテストにパスした時の出力結果で，図5がテストに失敗した時の出力結果である．色を見るだけでテストをパスしているか失敗しているか一目瞭然である．
 
-\begin{figure}[htbp]\begin{center}
-\includegraphics[width=6cm,bb=0 0 442 432]{../figs/./ruby_novice.004.jpg}
+\begin{figure}[H]\begin{center}
+\includegraphics[width=12cm,bb= 0 0 737 553]{../figs/./ruby_novice.004.jpg}
 \caption{Greenの出力結果．}
 \label{default}\end{center}\end{figure}
-\begin{figure}[htbp]\begin{center}
-\includegraphics[width=6cm,bb=0 0 442 432]{../figs/./ruby_novice.005.jpg}
+\begin{figure}[H]\begin{center}
+\includegraphics[width=12cm,bb= 0 0 737 653]{../figs/./ruby_novice.005.jpg}
 \caption{Redの出力結果.}
 \label{default}\end{center}\end{figure}
 \subsection{ruby\_noviceの使用法}
+
 1. 自分の好きな名前(koki)をつけたディレクトリを作成する.
 
 2. ./lib/koki/chap\_files.rbを準備する.
@@ -257,27 +277,30 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 
 4. chap1.rbというファイルを作り,そのファイルにたのしいRuby１章のlist(1.1~1.7)のコードを書いていく．
 
-5. rspecで，個人ごとの検査を実行する場合,環境変数RUBYNOVICE\_NAMEにディレクトリ名(koki)を入れる.
+5. rspecで，個人ごとの検査を実行する場合,環境変数RUBYNOVICE\_NAMEに各自で決めたディレクトリ名(koki)を入れる.
 
 \begin{itemize}
 \item (csh,tcsh)setenv RUBYNOVICE\_NAME koki
 \item (bash,zsh)export RUBYNOVICE\_NAME=koki
 \end{itemize}
+
 コード例
-\begin{lstlisting}[style=customRuby]
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
   #/Users/Koki/ruby_novice% cat lib/koki/chap_files.rb
-	
-	 require "chap1"
+  
+  require "chap1"
   #require "chap3" 
   #require "chap4"
   #require "chap5"
   #require "chap6"
   #require "chap7"
 
-	(注) # はコメントアウト．
+  (注) # はコメントアウト．
 \end{lstlisting}
+
 コード例 (たのしいRuby第１章)
-\begin{lstlisting}[style=customRuby]
+
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
  #/Users/Koki/ruby_novice% cat lib/koki/chap1.rb
  
  def helloruby     
@@ -343,10 +366,12 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
    end
  end
 \end{lstlisting}
-\subsubsection{tagの表示の仕方}
+\subsubsection{Tagの表示の仕方}
+
 1. grep type spec/ruby\_novice\_spec.rb  で全てのcontextとtypeを表示.
 typeは各章の各問題名に相当する．各問題ごとにテストする時の便宜となる．
-\begin{lstlisting}[style=customRuby]
+
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
   context 'version option', type: :version do
   context 'help option', type: :help do
   context 'print hello', type: :hello do
@@ -392,16 +417,22 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
   context 'myloop1', type: :myloop1 do
 \end{lstlisting}
 \subsection{全章のテストの仕方}
+
 1. bundle exec rspec
+
 すべての章のテストを一括して実行できる．
 
 \subsection{各章ごとのテストの仕方}
+
 例: 1章(chap1)のテストをしたい時.
-1. bundle exec rspec spec/chap1\_spec.rb 
+
+1. bundle exec rspec spec/chap1\_spec.rb
+
 2. bundle exec rake chap 1
 
 実行例
-\begin{lstlisting}[style=customRuby]
+
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
  /Users/Koki/ruby_novice% bundle exec rake chap 1   
  
  ruby_novie command
@@ -437,11 +468,13 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 \end{lstlisting}
 \subsubsection{各問題ごとのテストの仕方}
 例: 各問題(helloruby)ごとにテストをしたい時.
+
 1. bundle exec rspec --tag type:helloruby spec/ruby\_novice\_spec.rb  (hellorubyは問題名)
+
 2. bundle exec rake test\_name helloruby
 
 実行例
-\begin{lstlisting}[style=customRuby]
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
 /Users/Koki/ruby_novice% bundle exec rake test_name helloruby
 Run options: include {:type=>"helloruby"}
 
@@ -453,17 +486,19 @@ ruby_novie command
 Finished in 0.87128 seconds (files took 0.81684 seconds to load)
 2 examples, 0 failures
 \end{lstlisting}
+
 問題名は,上記のgrep type spec/ruby\_novice\_spec.rbで調べることができる．
 typeが各問題の名前になる．またtextの問題名(例えばputs\_and\_p.rb)が，そのまま使えるのでテストも簡単にでき，問題名で中身のコードの内容も把握できる．
 
 \subsubsection{各問題ごとの実行結果の出力}
-例: hellorubyの実行結果の出力
+例として, 下記に print("Hello, Ruby.") のコードを入力する問題であるhelloruby.rbの実行結果の出力を示す.
 
 1. bundle exec exe/ruby\_novice my\_helloruby
+
 2. bundle exec rake/output helloruby
 
 実行例
-\begin{lstlisting}[style=customRuby]
+\begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
 /Users/Koki/ruby_novice% bundle exec rake output helloruby
 Hello, Ruby.
 \end{lstlisting}
