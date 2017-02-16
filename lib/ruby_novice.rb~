@@ -1,11 +1,11 @@
 $LOAD_PATH.unshift File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
-begin
+#begin
   require "chap_files"
-rescue LoadError
-  p "Load Error of chap_files in ruby_novice.rb."
-  p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
-  exit
-end
+#rescue LoadError
+#  p "Load Error of chap_files in ruby_novice.rb."
+#  p File.expand_path("../../lib/#{ENV['RUBYNOVICE_NAME']}", __FILE__)
+#  exit
+#end
 
 require "ruby_novice/version"
 require 'thor'
@@ -145,7 +145,7 @@ module RubyNovice
 
     desc 'my_ad2heisei ARGV0', 'print ad2heisei ARGV0'
     def my_ad2heisei(argv0)
-      ARGV[0] = argv0      
+      ARGV[0] = argv0
       ad2heisei
     end
 

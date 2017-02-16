@@ -15,9 +15,10 @@ ruby_noviceは，情報環境であるGitHubを利用しRuby初心者が文法�
 !!ruby_noviceの仕組み
 
 !!!caption:ruby_noviceの構造．
+
 {{attach_view(ruby_novice.001.jpg, ruby_novice_koki)}}
 
-ruby_noviceの構造は，上記の図のように３つに分かれています．
+ruby_noviceの構造は，図２のように３つに分かれています．
 :chap_files.rb (chap1.rb, chap2.rb ...): Text(たのしいRuby)のコードを書く部分.
 :ruby_novice.rb:  chap_files.rbを呼び出している．
 :spec_files.rb:  runで外部コマンドを入力して，出力結果 = 期待している値の検証．
@@ -26,6 +27,7 @@ ruby_noviceの構造は，上記の図のように３つに分かれています
 
 以下がruby_novice.rbのコードの中身である. 
 「たのしいRuby」の１章に対応するコードのみを抜粋している．
+
 <<< ruby
  #ruby_novice.rb
  
@@ -268,15 +270,15 @@ Red,Greenという言葉は,TDDで多用されるテスティングフレーム�
 コード例
 <<< ruby
   #/Users/Koki/ruby_novice% cat lib/koki/chap_files.rb
-	
-	 require "chap1"
+  
+  require "chap1"
   #require "chap3" 
   #require "chap4"
   #require "chap5"
   #require "chap6"
   #require "chap7"
 
-	(注) # はコメントアウト．
+  (注) # はコメントアウト．
 >>>
 
 コード例 (たのしいRuby第１章)
@@ -403,12 +405,15 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 !!全章のテストの仕方
 
 1. bundle exec rspec
+
 すべての章のテストを一括して実行できる．
 
 !!各章ごとのテストの仕方
 
 例: 1章(chap1)のテストをしたい時.
-1. bundle exec rspec spec/chap1_spec.rb 
+
+1. bundle exec rspec spec/chap1_spec.rb
+ 
 2. bundle exec rake chap 1
 
 実行例
@@ -451,7 +456,9 @@ typeは各章の各問題名に相当する．各問題ごとにテストする�
 !!!各問題ごとのテストの仕方
 
 例: 各問題(helloruby)ごとにテストをしたい時.
+
 1. bundle exec rspec --tag type:helloruby spec/ruby_novice_spec.rb  (hellorubyは問題名)
+
 2. bundle exec rake test_name helloruby
 
 実行例
@@ -477,6 +484,7 @@ typeが各問題の名前になる．またtextの問題名(例えばputs_and_p.
 例: hellorubyの実行結果の出力
 
 1. bundle exec exe/ruby_novice my_helloruby
+
 2. bundle exec rake/output helloruby
 
 実行例

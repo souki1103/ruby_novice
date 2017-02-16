@@ -40,7 +40,7 @@ test_ がないとちゃんと動いてくれません．
 （とはいえ、原則として1テストメソッドにつき1アサーションとするのが望ましい）
 
 このテストを実行すると以下のような出力になります．
-<<< bash
+<<< ruby
 /Users/Koki/rubynovice/spec/test_unit/list1% ruby test_helloruby.rb 
 Hello, ruby.
 Loaded suite test_helloruby
