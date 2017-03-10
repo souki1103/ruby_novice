@@ -1,57 +1,48 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2017.1.26)  16 FEB 2017 12:40
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.euc) (TeX Live 2016) (preloaded format=platex 2016.8.23)  16 FEB 2017 14:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **abst.tex
 (./abst.tex
-pLaTeX2e <2016/11/29> (based on LaTeX2e <2017/01/01>)
+pLaTeX2e <2016/05/07> (based on LaTeX2e <2016/03/31>)
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jsarticle.cls
-Document Class: jsarticle 2017/01/13 okumura, texjporg
-\jsc@mpt=\dimen118
-\jsc@mmm=\dimen119
-\jsc@smallskipamount=\skip41
-LaTeX Info: Redefining \rmfamily on input line 468.
-LaTeX Info: Redefining \sffamily on input line 471.
-LaTeX Info: Redefining \ttfamily on input line 474.
-LaTeX Info: Redefining \textmc on input line 477.
-LaTeX Info: Redefining \textgt on input line 479.
+Document Class: jsarticle 2014/02/07 okumura
+LaTeX Info: Redefining \rmfamily on input line 352.
+LaTeX Info: Redefining \sffamily on input line 355.
+LaTeX Info: Redefining \ttfamily on input line 358.
 \symmincho=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
-(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 540.
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 423.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 731.
+(Font)              scaled to size 9.60999pt on input line 613.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 731.
-\fullwidth=\dimen120
+(Font)              scaled to size 9.60999pt on input line 613.
+\fullwidth=\dimen118
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 883.
+(Font)              scaled to size 7.68799pt on input line 760.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 883.
-\c@part=\count82
-\c@section=\count83
-\c@subsection=\count84
-\c@subsubsection=\count85
-\c@paragraph=\count86
-\c@subparagraph=\count87
+(Font)              scaled to size 7.68799pt on input line 760.
+\c@part=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
 \@abstractbox=\box41
-\c@figure=\count88
-\c@table=\count89
-\abovecaptionskip=\skip42
-\belowcaptionskip=\skip43
-\jsc@tocl@width=\dimen121
-\@lnumwidth=\dimen122
-\bibindent=\dimen123
-(/usr/local/texlive/2016/texmf-dist/tex/platex/jsclasses/jslogo.sty
-Package: jslogo 2016/07/14 okumura, texjporg
-LaTeX Info: Redefining \TeX on input line 94.
-LaTeX Info: Redefining \LaTeX on input line 147.
-LaTeX Info: Redefining \LaTeXe on input line 200.
-)
-\heisei=\count90
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\js@tocl@width=\dimen119
+\@lnumwidth=\dimen120
+\bibindent=\dimen121
+LaTeX Info: Redefining \TeX on input line 1731.
+LaTeX Info: Redefining \LaTeX on input line 1757.
+LaTeX Info: Redefining \LaTeXe on input line 1782.
+\heisei=\count89
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
@@ -59,22 +50,28 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
 )
-Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+Package graphics Info: Driver file: dvipdfmx.def on input line 96.
 
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
-File: dvipdfmx.def 2016/07/11 v4.12 LaTeX color/graphics driver for dvipdfmx (L
-3/ChoF)
-))
-\Gin@req@height=\dimen124
-\Gin@req@width=\dimen125
+(/usr/local/texlive/2016/texmf-dist/tex/latex/dvipdfmx-def/dvipdfmx.def
+File: dvipdfmx.def 2016/04/06 v4.08 LaTeX color/graphics driver for dvipdfmx (T
+eX Live/ChoF)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+\Gin@req@height=\dimen122
+\Gin@req@width=\dimen123
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
@@ -83,7 +80,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/here/here.sty)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count91
+\c@float@type=\count90
 \float@exts=\toks16
 \float@box=\box42
 \@float@everytoks=\toks17
@@ -131,9 +128,6 @@ LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 27.
 LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
 (Font)              scaled to size 9.60999pt on input line 27.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: abst.jpg Graphic file (type bmp)
 
 <abst.jpg>
@@ -145,6 +139,9 @@ LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 55.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 (Font)              scaled to size 8.64899pt on input line 55.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 75.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -164,12 +161,12 @@ Underfull \hbox (badness 4832) in paragraph at lines 75--76
 
 ] (./abst.aux) ) 
 Here is how much of TeX's memory you used:
- 971 strings out of 493683
- 11645 string characters out of 6149653
- 75549 words of memory out of 5000000
- 4572 multiletter control sequences out of 15000+600000
+ 1087 strings out of 493693
+ 13473 string characters out of 6149787
+ 76468 words of memory out of 5000000
+ 4674 multiletter control sequences out of 15000+600000
  13868 words of font info for 62 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 25i,7n,21p,316b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,7n,21p,316b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on abst.dvi (1 page, 6804 bytes).
+Output written on abst.dvi (1 page, 6780 bytes).
