@@ -10,19 +10,21 @@
 \contentsline {subsubsection}{\numberline {2.2.3}arubaとは}{7}
 \contentsline {section}{\numberline {3}開発ソフトの仕様と使用法}{8}
 \contentsline {subsection}{\numberline {3.1}ruby\_noviceの振る舞いと意義}{8}
-\contentsline {subsection}{\numberline {3.2}ruby\_noviceの仕組み}{9}
-\contentsline {subsection}{\numberline {3.3}ruby\_noviceの現状}{13}
+\contentsline {subsection}{\numberline {3.2}ruby\_noviceの仕組み}{8}
+\contentsline {subsection}{\numberline {3.3}ruby\_noviceの現状}{12}
 \contentsline {subsubsection}{\numberline {3.3.1}注意}{13}
-\contentsline {subsection}{\numberline {3.4}ruby\_noviceの作業の流れ}{14}
-\contentsline {subsection}{\numberline {3.5}ruby\_noviceの使用法}{16}
-\contentsline {subsubsection}{\numberline {3.5.1}Tagの表示の仕方}{18}
-\contentsline {subsection}{\numberline {3.6}全章のテストの仕方}{19}
-\contentsline {subsection}{\numberline {3.7}各章ごとのテストの仕方}{19}
-\contentsline {subsubsection}{\numberline {3.7.1}各問題ごとのテストの仕方}{20}
-\contentsline {subsubsection}{\numberline {3.7.2}各問題ごとの実行結果の出力}{21}
-\contentsline {section}{\numberline {4}考察}{22}
-\contentsline {subsection}{\numberline {4.1}なぜaruba? (aruba vs test::unit)}{22}
-\contentsline {subsubsection}{\numberline {4.1.1}test::unitで書いたテストコード}{22}
-\contentsline {subsubsection}{\numberline {4.1.2}test::unitでの問題点}{23}
-\contentsline {subsubsection}{\numberline {4.1.3}arubaで書いたテストコード}{24}
-\contentsline {section}{\numberline {5}結論}{26}
+\contentsline {subsection}{\numberline {3.4}ruby\_noviceの作業の流れ}{13}
+\contentsline {subsection}{\numberline {3.5}ruby\_noviceの使用法}{14}
+\contentsline {subsubsection}{\numberline {3.5.1}tagの表示の仕方}{17}
+\contentsline {subsection}{\numberline {3.6}全章のテストの仕方}{18}
+\contentsline {subsection}{\numberline {3.7}各章ごとのテストの仕方}{18}
+\contentsline {subsubsection}{\numberline {3.7.1}各問題ごとのテストの仕方}{19}
+\contentsline {subsubsection}{\numberline {3.7.2}各問題ごとの実行結果の出力}{20}
+\contentsline {section}{\numberline {4}考察}{21}
+\contentsline {subsection}{\numberline {4.1}なぜaruba? (aruba vs test::unit)}{21}
+\contentsline {subsubsection}{\numberline {4.1.1}test::unitで書いたテストコード}{21}
+\contentsline {subsubsection}{\numberline {4.1.2}test::unitでの問題点}{22}
+\contentsline {subsubsection}{\numberline {4.1.3}arubaで書いたテストコード}{22}
+\contentsline {section}{\numberline {5}結論}{25}
+\contentsline {section}{\numberline {6}謝辞}{26}
+\contentsline {section}{\numberline {7}参考文献}{26}

@@ -1,15 +1,13 @@
 
 \section{考察}
 \subsection{なぜaruba? (aruba vs test::unit)}
-Cucumber,RSpec,Minitest (test::unit)のような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
-test:unitやarubaで書くとどうなるかを具体的に書いたコードを比べて示していく．
+Cucumber,RSpec,Minitestのような人気のあるTDD/BDDフレームワークの中でもarubaを使用した理由は以下の通りである．
+test:unitやarubaで書くとどうなるかを具体的に書いたコードを比べて示していきます．
 
 \subsubsection{test::unitで書いたテストコード}
 たのしいRubyのテキストに記載されている問題で比較していきたいと思います．
 テキストの最初の問題は，Hello, Rubyを出力するプログラムです．
 \begin{quote}\begin{verbatim}
-# list 1.1 (helloruby.rb)
-
 print("Hello, Ruby.\n")
 \end{verbatim}\end{quote}
 まず,出力されるHello, Rubyをテストする場合のコードです．
@@ -33,14 +31,13 @@ class Test_Sample < Test::Unit::TestCase
 end
 print("Hello, ruby.\n")
 \end{lstlisting}
-
 テストコードの内容は以下の通りである．
-Rubyで代表的なtest/unitというgemが提供されている．このプログラムの始め (require 'test/unit')で, test/unitを呼び出している．
-Test::Unit::TestCaseを継承したクラスを用意し, test\_xxxというメソッドを定義するとそのメソッドがテストの実行対象になり,ここではそれぞれTest\_Sampleクラスとtest\_hellorubyメソッドがそれに該当する．
-クラス名は大文字から始めるという規則があるので注意が必要である．またメソッド名は，必ずtest\_ から始めなくてはならない．ここでは単純にtest\_hellorubyとしている．実行してみると分かるが，
-test\_ がないとちゃんと動いてくれない．
-テストコードは，assert\_equal(期待値),(実行値)で実行結果を検証する. assert\_equalは，ふたつの引数をとり，第１引数は期待している結果で，第２引数はテストの対象である．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
-補足ですが，test\_xxxというメソッドはクラス内に複数あっても構わない.また、1つのテストメソッド内にassert\_equalを複数書くのもOKである.
+Rubyで代表的なtest/unitというgemが提供されています．このプログラムの始め（require 'test/unit'）で，test/unitを呼び出します．
+Test::Unit::TestCaseを継承したクラスを用意し、test\_xxxというメソッドを定義するとそのメソッドがテストの実行対象になり,ここではそれぞれTest\_Sampleクラスとtest\_hellorubyメソッドがそれに該当します。
+クラス名は大文字から始めるという規則がありますので注意してください．またメソッド名は，必ずtest\_ から始めなくてはいけません．ここでは単純にtest\_hellorubyとしています．実行してみると分かりますが，
+test\_ がないとちゃんと動いてくれません．
+テストコードは，assert\_equal(期待値),(実際の値)で実行結果を検証します.assert\_equalは，ふたつの引数をとり，第１引数は期待している結果で，第２引数はテストの対象です．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
+補足ですが，test\_xxxというメソッドはクラス内に複数あっても構いません.また、1つのテストメソッド内にassert\_equalを複数書くのもOKです.
 （とはいえ、原則として1テストメソッドにつき1アサーションとするのが望ましい）
 
 このテストを実行すると以下のような出力になります．
@@ -58,15 +55,14 @@ Finished in 0.000982 seconds.
 1018.33 tests/s, 1018.33 assertions/s
 \end{lstlisting}
 \subsubsection{test::unitでの問題点}
-
 この場合だと初心者であるRubyの学習者がスクリプトとテストコードを同時に書かなければならない．学習者は，テストコードの書き方も学ぶ必要があるので，学習コストや間違えるリスクが大きくなる．
-一番の問題点は，テキストを見ながら，その問題通りに書けないということである．先ほどの問題で説明すると，コードにreturnを付け加えなければならないことや，printメソッドはreturnできないので，テストするときは return "Hello, Ruby."と書き換えなければならない．
-このようにtest::unitだとメソッドを書き換えなければならないことや，printメソッドをreturnで返すことができないというデメリットがある．
-そこでarubaは, printをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがあるので学習コストや間違えるリスクを削減できる．
-ここからは, 実際にarubaで書いたコードを元にして具体的に示していく．
+一番の問題点は，テキストを見ながら，その問題通りに書けないということです．先ほどの問題で説明すると，コードにreturnを付け加えなければならないことや，printメソッドはreturnできないので，テストするときは return "Hello, Ruby.\\n"と書き換えなければなりません．
+このようにtest::unitだとメソッドを書き換えないといけないことや，printメソッドをreturnで返すことができないというデメリットがある．
+そこでarubaはprintをそのまま出力できテストが可能である．学習者がtext（たのしいRuby）を見ながら書いていけるというメリットがあるので学習コストや間違えるリスクを削減できます．
+実際にarubaで書いたコードを元にして具体的に示します．
 
 \subsubsection{arubaで書いたテストコード}
-先ほどと同じHello, Rubyを出力するプログラムをテストして比較する．
+先ほどと同じHello, Rubyを出力するプログラムをテストします．
 \begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
 # code.rb
 
@@ -87,11 +83,11 @@ module RubyNovice
     end
 end
 \end{lstlisting}
-まずrequire で，thorとcode.rbを呼び出している．thorは，コマンドラインツールを作るためのgemである．
-引数の受け渡しを簡潔に書くことができ，オプションのパースやUsage Message の表示など簡単に作成できる．
+require で，thorとcode.rbを呼び出しています．thorは，コマンドラインツールを作るためのgemです．
+引数の受け渡しを簡潔に書くことができ，オプションのパースやUsage Message の表示など簡単に作成できます．
 
-次にテストコードですが，arubaの場合printメソッドをreturnせずにそのままテストが可能になる．
-下記がこの問題でのテストコードである．
+次にテストコードですが，arubaの場合printメソッドをreturnせずにそのままテストが可能になります．
+下記がこの問題でのテストコードです．
 \begin{lstlisting}[style=customRuby,basicstyle={\scriptsize\ttfamily}]
 #ruby_novice_spec.rb
 
@@ -106,14 +102,14 @@ RSpec.describe 'ruby_novie command', type: :aruba do
   end
 end
 \end{lstlisting}
-テストコードの意味は次の通りである．
-\begin{itemize}
-\item run('ruby\_novice my\_helloruby') : ruby\_noviceのmy\_hellorubyを実行する.
+テストコードの意味は次の通りです．
+\begin{description}
+\item[run('ruby\_novice my\_helloruby')]  ruby\_noviceのmy\_hellorubyを実行する.
 
-\item expected = "Hello, Ruby." : 期待している結果. test::unitでいう第１引数である．
+\item[expected = "Hello, Ruby."]  期待している結果. test::unitでいう第１引数である．
 
-\item expect(last\_command\_started).to be\_successfully\_executed : status 0 で終了していることを確認. このコードでエラーなく終了したことを確認する．
+\item[expect(last\_command\_started).to be\_successfully\_executed]  status 0 で終了していることを確認. このコードでエラーなく終了したことを確認する．
 
-\item expect(last\_command\_started).to have\_output(expected) : 出力がcontentsであることを確認, 正規表現も使用可能である．このコードで期待値=実際の値であるかを検証します．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
+\item[expect(last\_command\_started).to have\_output(expected)]  出力がcontentsであることを確認,正規表現も使用可能である．このコードで期待値=実際の値であるかを検証します．両者が一致すればテストをパスし,一致しない場合はテストが失敗する.
 
-\end{itemize}
+\end{description}
